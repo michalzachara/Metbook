@@ -1,5 +1,5 @@
 # BASE URL
-@baseUrl = http://localhost:5000/api
+@baseUrl = http://localhost:3000/api
 
 ### 1. Signup - Rejestracja użytkownika
 POST {{baseUrl}}/signup
@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "name": "BAsia",
   "surname": "Kowalski",
-  "username": "basia",
+  "username": "basiaKasia",
   "password": "123456",
   "confirmPassword": "123456",
   "gender": "female",
