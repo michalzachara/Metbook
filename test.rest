@@ -1,0 +1,42 @@
+# BASE URL
+@baseUrl = http://localhost:5000/api
+
+### 1. Signup - Rejestracja użytkownika
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+  "name": "BAsia",
+  "surname": "Kowalski",
+  "username": "basia",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "gender": "female",
+  "profilePic": "https://avatar.iran.liara.run/public/girl?username=$michal"
+}
+
+### 2. Login - Logowanie użytkownika
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "janek",
+  "password": "123456"
+}
+
+### 3. Pobierz wszystkich użytkowników
+GET {{baseUrl}}/users
+Content-Type: application/json
+
+
+### 4. Edytuj dane użytkownika
+PUT http://localhost:3000/api/profile
+Content-Type: application/json
+
+{
+  "_id": "67b73884a3bc62db9592ddbd",
+  "username": "newUsername",
+  "surname": "NewSurname",
+  "name": "NewName",
+  "gender": "NewGender"
+}
