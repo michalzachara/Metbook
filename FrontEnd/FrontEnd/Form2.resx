@@ -273,31 +273,31 @@
   <data name="&gt;&gt;userNameLabel.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="userNameTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="userNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 102</value>
   </data>
-  <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
+  <data name="userNameTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="userNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>328, 36</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="userNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;userNameTextBox.Name" xml:space="preserve">
+    <value>userNameTextBox</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;userNameTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;userNameTextBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;userNameTextBox.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="passwordLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -513,61 +513,61 @@
   <data name="&gt;&gt;dateLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="maleRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="maleRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 19</value>
   </data>
-  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="maleRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 22</value>
   </data>
-  <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
+  <data name="maleRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="radioButton1.Text" xml:space="preserve">
+  <data name="maleRadioButton.Text" xml:space="preserve">
     <value>Mężczyzna</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
-    <value>radioButton1</value>
+  <data name="&gt;&gt;maleRadioButton.Name" xml:space="preserve">
+    <value>maleRadioButton</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
+  <data name="&gt;&gt;maleRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;maleRadioButton.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;maleRadioButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="radioButton2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="femaleRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="femaleRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="femaleRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 42</value>
   </data>
-  <data name="radioButton2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="femaleRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 22</value>
   </data>
-  <data name="radioButton2.TabIndex" type="System.Int32, mscorlib">
+  <data name="femaleRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="radioButton2.Text" xml:space="preserve">
+  <data name="femaleRadioButton.Text" xml:space="preserve">
     <value>Kobieta</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
-    <value>radioButton2</value>
+  <data name="&gt;&gt;femaleRadioButton.Name" xml:space="preserve">
+    <value>femaleRadioButton</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;femaleRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;femaleRadioButton.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;femaleRadioButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">

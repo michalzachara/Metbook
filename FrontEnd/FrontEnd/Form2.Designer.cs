@@ -34,7 +34,7 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.surnNameTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.firstNameLabel = new System.Windows.Forms.Label();
@@ -42,9 +42,9 @@
             this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.maleRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.femaleRadioButton = new System.Windows.Forms.RadioButton();
             this.submitButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.loginInHereLabel = new System.Windows.Forms.Label();
@@ -81,11 +81,11 @@
             this.userNameLabel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.userNameLabel.Name = "userNameLabel";
             // 
-            // textBox1
+            // userNameTextBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.userNameTextBox, "userNameTextBox");
+            this.userNameTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.userNameTextBox.Name = "userNameTextBox";
             // 
             // passwordLabel
             // 
@@ -128,27 +128,27 @@
             this.dateLabel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.dateLabel.Name = "dateLabel";
             // 
-            // radioButton1
+            // maleRadioButton
             // 
-            resources.ApplyResources(this.radioButton1, "radioButton1");
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.maleRadioButton, "maleRadioButton");
+            this.maleRadioButton.Checked = true;
+            this.maleRadioButton.Name = "maleRadioButton";
+            this.maleRadioButton.TabStop = true;
+            this.maleRadioButton.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.femaleRadioButton);
+            this.groupBox1.Controls.Add(this.maleRadioButton);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // radioButton2
+            // femaleRadioButton
             // 
-            resources.ApplyResources(this.radioButton2, "radioButton2");
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.femaleRadioButton, "femaleRadioButton");
+            this.femaleRadioButton.Name = "femaleRadioButton";
+            this.femaleRadioButton.UseVisualStyleBackColor = true;
             // 
             // submitButton
             // 
@@ -157,6 +157,7 @@
             this.submitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.submitButton.Name = "submitButton";
             this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // label2
             // 
@@ -186,7 +187,7 @@
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.surnNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
@@ -206,7 +207,7 @@
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox surnNameTextBox;
         private System.Windows.Forms.Label userNameLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label firstNameLabel;
@@ -214,9 +215,9 @@
         private System.Windows.Forms.TextBox repeatPasswordTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton maleRadioButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton femaleRadioButton;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label loginInHereLabel;

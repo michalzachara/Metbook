@@ -37,6 +37,7 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.registerLabel = new System.Windows.Forms.Label();
+            this.userNotFoundLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.accountIconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,12 +125,22 @@
             this.registerLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.registerLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.registerLabel.Location = new System.Drawing.Point(159, 426);
+            this.registerLabel.Location = new System.Drawing.Point(159, 438);
             this.registerLabel.Name = "registerLabel";
             this.registerLabel.Size = new System.Drawing.Size(219, 16);
             this.registerLabel.TabIndex = 7;
             this.registerLabel.Text = "nie masz konta? zarejestruj się";
             this.registerLabel.Click += new System.EventHandler(this.registerLabel_Click);
+            // 
+            // userNotFoundLabel
+            // 
+            this.userNotFoundLabel.ForeColor = System.Drawing.Color.Red;
+            this.userNotFoundLabel.Location = new System.Drawing.Point(146, 416);
+            this.userNotFoundLabel.Name = "userNotFoundLabel";
+            this.userNotFoundLabel.Size = new System.Drawing.Size(154, 22);
+            this.userNotFoundLabel.TabIndex = 8;
+            this.userNotFoundLabel.Text = "Nie ma takiego użytkownika";
+            this.userNotFoundLabel.Visible = false;
             // 
             // LoginForm
             // 
@@ -137,6 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(432, 525);
+            this.Controls.Add(this.userNotFoundLabel);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.passwordTextBox);
@@ -163,6 +175,7 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label registerLabel;
+        private System.Windows.Forms.Label userNotFoundLabel;
     }
 }
 
