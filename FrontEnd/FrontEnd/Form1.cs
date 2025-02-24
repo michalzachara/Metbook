@@ -43,18 +43,18 @@ namespace FrontEnd
         {
             string userName = userNameTextBox.Text;
             string userPassword = passwordTextBox.Text;
+
             if(String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(userPassword))
             {
-                MessageBox.Show("nie podales loginu lub hasla");
+                userNotFoundLabel.Text = ("Podaj poprawnie dane");
                 return;
             }
+
             using (HttpClient client = new HttpClient())
             {
-                //define URL of the API endpoint
                 var url = "https://metbook.onrender.com/api/login";
-
-                // create anonymous object to send as JSON
                 var data = new { username = userName, password = userPassword };
+
                 string jsonString = JsonConvert.SerializeObject(data);
 
                 HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
@@ -64,19 +64,60 @@ namespace FrontEnd
                     HttpResponseMessage response = await client.PostAsync(url,content);
                     if(response.IsSuccessStatusCode)
                     {
+                        //hide error label
+                        userNotFoundLabel.Visible = false;
+
+                        //declaration variables of response from server
+                        string resId,resUsername, resName, resSurname, resGender, resDate, resProfilePic;
+
                         string result = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show("Response: " + result);
+
+                        try
+                        {
+                            var jsonResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+
+                            if (jsonResponse != null)
+                            {
+                                resId = jsonResponse["_id"];
+                                resUsername = jsonResponse["username"];
+                                resName = jsonResponse["name"];
+                                resSurname = jsonResponse["surname"];
+                                resGender = jsonResponse["gender"];
+                                resDate = jsonResponse["date"];
+                                resProfilePic = jsonResponse["profilePic"];
+
+                                //-------------TO DO send it to main form (profile)
+                            }
+                        }
+                        catch (JsonException)
+                        {
+                            return;
+                        }
                     }
                     else
                     {
-                        userNotFoundLabel.Visible = true;
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        try
+                        {
+                            var errorResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+
+                            if (errorResponse != null && errorResponse.ContainsKey("error"))
+                            {
+                                userNotFoundLabel.Text = errorResponse["error"];
+                                userNotFoundLabel.Visible = true;
+                            }
+                        }
+                        catch (JsonException)
+                        {
+                            return;
+                        }
                     }
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show("Błąd w zapytaniu" + error);
                 }
-
             }
         }
     }

@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import moment from "moment";
 
-
 import User from "./model/user.js";
 import connect from "./db/connect.js";
 

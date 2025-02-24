@@ -38,6 +38,7 @@
             this.submitButton = new System.Windows.Forms.Button();
             this.registerLabel = new System.Windows.Forms.Label();
             this.userNotFoundLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.accountIconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.passwordLabel.Location = new System.Drawing.Point(53, 347);
+            this.passwordLabel.Location = new System.Drawing.Point(54, 349);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(36, 13);
             this.passwordLabel.TabIndex = 4;
@@ -110,7 +111,7 @@
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.submitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.submitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.submitButton.Location = new System.Drawing.Point(56, 457);
+            this.submitButton.Location = new System.Drawing.Point(56, 483);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(322, 53);
             this.submitButton.TabIndex = 6;
@@ -125,29 +126,44 @@
             this.registerLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.registerLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.registerLabel.Location = new System.Drawing.Point(159, 438);
+            this.registerLabel.Location = new System.Drawing.Point(274, 452);
             this.registerLabel.Name = "registerLabel";
-            this.registerLabel.Size = new System.Drawing.Size(219, 16);
+            this.registerLabel.Size = new System.Drawing.Size(104, 16);
             this.registerLabel.TabIndex = 7;
-            this.registerLabel.Text = "nie masz konta? zarejestruj się";
+            this.registerLabel.Text = "zarejestruj się";
             this.registerLabel.Click += new System.EventHandler(this.registerLabel_Click);
             // 
             // userNotFoundLabel
             // 
+            this.userNotFoundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.userNotFoundLabel.ForeColor = System.Drawing.Color.Red;
-            this.userNotFoundLabel.Location = new System.Drawing.Point(146, 416);
+            this.userNotFoundLabel.Location = new System.Drawing.Point(56, 417);
             this.userNotFoundLabel.Name = "userNotFoundLabel";
-            this.userNotFoundLabel.Size = new System.Drawing.Size(154, 22);
+            this.userNotFoundLabel.Size = new System.Drawing.Size(322, 22);
             this.userNotFoundLabel.TabIndex = 8;
             this.userNotFoundLabel.Text = "Nie ma takiego użytkownika";
+            this.userNotFoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.userNotFoundLabel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(170, 452);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "nie masz konta?";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(432, 525);
+            this.ClientSize = new System.Drawing.Size(432, 548);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.userNotFoundLabel);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.submitButton);
@@ -176,6 +192,7 @@
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label registerLabel;
         private System.Windows.Forms.Label userNotFoundLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
