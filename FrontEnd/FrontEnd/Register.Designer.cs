@@ -48,6 +48,12 @@
             this.submitButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.loginInHereLabel = new System.Windows.Forms.Label();
+            this.errorUsername = new System.Windows.Forms.Label();
+            this.errorName = new System.Windows.Forms.Label();
+            this.errorSurname = new System.Windows.Forms.Label();
+            this.errorPass = new System.Windows.Forms.Label();
+            this.errorConfirmPass = new System.Windows.Forms.Label();
+            this.errorDate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,12 +74,14 @@
             resources.ApplyResources(this.firstNameTextBox, "firstNameTextBox");
             this.firstNameTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
             // 
             // surnNameTextBox
             // 
             resources.ApplyResources(this.surnNameTextBox, "surnNameTextBox");
             this.surnNameTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.surnNameTextBox.Name = "surnNameTextBox";
+            this.surnNameTextBox.TextChanged += new System.EventHandler(this.surnNameTextBox_TextChanged);
             // 
             // userNameLabel
             // 
@@ -86,6 +94,7 @@
             resources.ApplyResources(this.userNameTextBox, "userNameTextBox");
             this.userNameTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.TextChanged += new System.EventHandler(this.userNameTextBox_TextChanged);
             // 
             // passwordLabel
             // 
@@ -98,6 +107,7 @@
             resources.ApplyResources(this.passwordTextBox, "passwordTextBox");
             this.passwordTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // firstNameLabel
             // 
@@ -116,11 +126,13 @@
             resources.ApplyResources(this.repeatPasswordTextBox, "repeatPasswordTextBox");
             this.repeatPasswordTextBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
+            this.repeatPasswordTextBox.TextChanged += new System.EventHandler(this.repeatPasswordTextBox_TextChanged);
             // 
             // dateTimePicker1
             // 
             resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
             this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateLabel
             // 
@@ -172,10 +184,58 @@
             this.loginInHereLabel.Name = "loginInHereLabel";
             this.loginInHereLabel.Click += new System.EventHandler(this.loginInLabel_Click);
             // 
+            // errorUsername
+            // 
+            resources.ApplyResources(this.errorUsername, "errorUsername");
+            this.errorUsername.BackColor = System.Drawing.Color.Transparent;
+            this.errorUsername.ForeColor = System.Drawing.Color.Red;
+            this.errorUsername.Name = "errorUsername";
+            // 
+            // errorName
+            // 
+            resources.ApplyResources(this.errorName, "errorName");
+            this.errorName.BackColor = System.Drawing.Color.Transparent;
+            this.errorName.ForeColor = System.Drawing.Color.Red;
+            this.errorName.Name = "errorName";
+            // 
+            // errorSurname
+            // 
+            resources.ApplyResources(this.errorSurname, "errorSurname");
+            this.errorSurname.BackColor = System.Drawing.Color.Transparent;
+            this.errorSurname.ForeColor = System.Drawing.Color.Red;
+            this.errorSurname.Name = "errorSurname";
+            // 
+            // errorPass
+            // 
+            resources.ApplyResources(this.errorPass, "errorPass");
+            this.errorPass.BackColor = System.Drawing.Color.Transparent;
+            this.errorPass.ForeColor = System.Drawing.Color.Red;
+            this.errorPass.Name = "errorPass";
+            // 
+            // errorConfirmPass
+            // 
+            resources.ApplyResources(this.errorConfirmPass, "errorConfirmPass");
+            this.errorConfirmPass.BackColor = System.Drawing.Color.Transparent;
+            this.errorConfirmPass.ForeColor = System.Drawing.Color.Red;
+            this.errorConfirmPass.Name = "errorConfirmPass";
+            // 
+            // errorDate
+            // 
+            resources.ApplyResources(this.errorDate, "errorDate");
+            this.errorDate.BackColor = System.Drawing.Color.Transparent;
+            this.errorDate.ForeColor = System.Drawing.Color.Red;
+            this.errorDate.Name = "errorDate";
+            // 
             // RegisterForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.errorDate);
+            this.Controls.Add(this.errorConfirmPass);
+            this.Controls.Add(this.errorPass);
+            this.Controls.Add(this.errorSurname);
+            this.Controls.Add(this.errorName);
+            this.Controls.Add(this.errorUsername);
             this.Controls.Add(this.loginInHereLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.submitButton);
@@ -221,5 +281,11 @@
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label loginInHereLabel;
+        private System.Windows.Forms.Label errorUsername;
+        private System.Windows.Forms.Label errorName;
+        private System.Windows.Forms.Label errorSurname;
+        private System.Windows.Forms.Label errorPass;
+        private System.Windows.Forms.Label errorConfirmPass;
+        private System.Windows.Forms.Label errorDate;
     }
 }

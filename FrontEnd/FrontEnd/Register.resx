@@ -130,7 +130,7 @@
     <value>NoControl</value>
   </data>
   <data name="registerLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 31</value>
+    <value>158, 30</value>
   </data>
   <data name="registerLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 29</value>
@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;registerLabel.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>22</value>
   </data>
   <data name="surnNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -163,7 +163,7 @@
     <value>NoControl</value>
   </data>
   <data name="surnNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 222</value>
+    <value>237, 173</value>
   </data>
   <data name="surnNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 18</value>
@@ -184,19 +184,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;surnNameLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>21</value>
   </data>
   <data name="firstNameTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
   </data>
   <data name="firstNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 168</value>
+    <value>21, 194</value>
   </data>
   <data name="firstNameTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="firstNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 36</value>
+    <value>214, 36</value>
   </data>
   <data name="firstNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -211,19 +211,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;firstNameTextBox.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>20</value>
   </data>
   <data name="surnNameTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
   </data>
   <data name="surnNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 243</value>
+    <value>241, 194</value>
   </data>
   <data name="surnNameTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="surnNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 36</value>
+    <value>197, 36</value>
   </data>
   <data name="surnNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -238,7 +238,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;surnNameTextBox.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>19</value>
   </data>
   <data name="userNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -271,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;userNameLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>18</value>
   </data>
   <data name="userNameTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
@@ -283,7 +283,7 @@
     <value>True</value>
   </data>
   <data name="userNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 36</value>
+    <value>417, 36</value>
   </data>
   <data name="userNameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -298,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;userNameTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>17</value>
   </data>
   <data name="passwordLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,7 +310,7 @@
     <value>NoControl</value>
   </data>
   <data name="passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 297</value>
+    <value>19, 258</value>
   </data>
   <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 18</value>
@@ -331,13 +331,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;passwordLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>16</value>
   </data>
   <data name="passwordTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
   </data>
   <data name="passwordTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 318</value>
+    <value>22, 279</value>
   </data>
   <data name="passwordTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -346,7 +346,7 @@
     <value>*</value>
   </data>
   <data name="passwordTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 36</value>
+    <value>213, 36</value>
   </data>
   <data name="passwordTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -361,7 +361,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;passwordTextBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>15</value>
   </data>
   <data name="firstNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -373,7 +373,7 @@
     <value>NoControl</value>
   </data>
   <data name="firstNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 147</value>
+    <value>18, 173</value>
   </data>
   <data name="firstNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 18</value>
@@ -394,7 +394,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;firstNameLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>14</value>
   </data>
   <data name="repeatPasswordLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -406,7 +406,7 @@
     <value>NoControl</value>
   </data>
   <data name="repeatPasswordLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 373</value>
+    <value>239, 258</value>
   </data>
   <data name="repeatPasswordLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 18</value>
@@ -427,13 +427,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repeatPasswordLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>13</value>
   </data>
   <data name="repeatPasswordTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15pt</value>
   </data>
   <data name="repeatPasswordTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 394</value>
+    <value>241, 279</value>
   </data>
   <data name="repeatPasswordTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -442,7 +442,7 @@
     <value>*</value>
   </data>
   <data name="repeatPasswordTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 36</value>
+    <value>198, 36</value>
   </data>
   <data name="repeatPasswordTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -457,16 +457,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repeatPasswordTextBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>12</value>
+  </data>
+  <data name="dateTimePicker1.CalendarFont" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 26.25pt</value>
   </data>
   <data name="dateTimePicker1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="dateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 474</value>
+    <value>21, 371</value>
   </data>
   <data name="dateTimePicker1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 24</value>
+    <value>417, 24</value>
   </data>
   <data name="dateTimePicker1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -481,7 +484,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateTimePicker1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>11</value>
   </data>
   <data name="dateLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -493,7 +496,7 @@
     <value>NoControl</value>
   </data>
   <data name="dateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 448</value>
+    <value>19, 345</value>
   </data>
   <data name="dateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 18</value>
@@ -514,7 +517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>10</value>
   </data>
   <data name="maleRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -559,10 +562,10 @@
     <value>Microsoft Sans Serif, 10.75pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 515</value>
+    <value>20, 423</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 71</value>
+    <value>419, 71</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -580,7 +583,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>9</value>
   </data>
   <data name="femaleRadioButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -625,10 +628,10 @@
     <value>MiddleLeft</value>
   </data>
   <data name="submitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 604</value>
+    <value>20, 514</value>
   </data>
   <data name="submitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 53</value>
+    <value>419, 53</value>
   </data>
   <data name="submitButton.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -649,7 +652,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;submitButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>8</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -658,7 +661,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 673</value>
+    <value>121, 587</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 16</value>
@@ -679,7 +682,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>7</value>
   </data>
   <data name="loginInHereLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -691,7 +694,7 @@
     <value>NoControl</value>
   </data>
   <data name="loginInHereLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>182, 673</value>
+    <value>228, 587</value>
   </data>
   <data name="loginInHereLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 16</value>
@@ -712,6 +715,219 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loginInHereLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="errorUsername.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorUsername.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 139</value>
+  </data>
+  <data name="errorUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 16</value>
+  </data>
+  <data name="errorUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="errorUsername.Text" xml:space="preserve">
+    <value>errorUsername</value>
+  </data>
+  <data name="errorUsername.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorUsername.Name" xml:space="preserve">
+    <value>errorUsername</value>
+  </data>
+  <data name="&gt;&gt;errorUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorUsername.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorUsername.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="errorName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="errorName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 231</value>
+  </data>
+  <data name="errorName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 16</value>
+  </data>
+  <data name="errorName.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="errorName.Text" xml:space="preserve">
+    <value>error name</value>
+  </data>
+  <data name="errorName.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorName.Name" xml:space="preserve">
+    <value>errorName</value>
+  </data>
+  <data name="&gt;&gt;errorName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="errorSurname.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorSurname.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorSurname.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="errorSurname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>241, 231</value>
+  </data>
+  <data name="errorSurname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 16</value>
+  </data>
+  <data name="errorSurname.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="errorSurname.Text" xml:space="preserve">
+    <value>error Surname</value>
+  </data>
+  <data name="errorSurname.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorSurname.Name" xml:space="preserve">
+    <value>errorSurname</value>
+  </data>
+  <data name="&gt;&gt;errorSurname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorSurname.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorSurname.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="errorPass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorPass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorPass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="errorPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 316</value>
+  </data>
+  <data name="errorPass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 16</value>
+  </data>
+  <data name="errorPass.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="errorPass.Text" xml:space="preserve">
+    <value>error pass</value>
+  </data>
+  <data name="errorPass.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorPass.Name" xml:space="preserve">
+    <value>errorPass</value>
+  </data>
+  <data name="&gt;&gt;errorPass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorPass.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorPass.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="errorConfirmPass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorConfirmPass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorConfirmPass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="errorConfirmPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 317</value>
+  </data>
+  <data name="errorConfirmPass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 16</value>
+  </data>
+  <data name="errorConfirmPass.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="errorConfirmPass.Text" xml:space="preserve">
+    <value>error confirm</value>
+  </data>
+  <data name="errorConfirmPass.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorConfirmPass.Name" xml:space="preserve">
+    <value>errorConfirmPass</value>
+  </data>
+  <data name="&gt;&gt;errorConfirmPass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorConfirmPass.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorConfirmPass.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="errorDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="errorDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="errorDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="errorDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 398</value>
+  </data>
+  <data name="errorDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 16</value>
+  </data>
+  <data name="errorDate.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="errorDate.Text" xml:space="preserve">
+    <value>error date</value>
+  </data>
+  <data name="errorDate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;errorDate.Name" xml:space="preserve">
+    <value>errorDate</value>
+  </data>
+  <data name="&gt;&gt;errorDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;errorDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;errorDate.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -721,7 +937,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>369, 707</value>
+    <value>462, 623</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Rejestracja</value>

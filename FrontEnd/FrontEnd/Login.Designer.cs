@@ -62,7 +62,6 @@
             this.accountIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.accountIconPictureBox.TabIndex = 1;
             this.accountIconPictureBox.TabStop = false;
-            this.accountIconPictureBox.Click += new System.EventHandler(this.accountIconPictureBox_Click);
             // 
             // userNameLabel
             // 
@@ -82,7 +81,6 @@
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(322, 32);
             this.userNameTextBox.TabIndex = 3;
-            this.userNameTextBox.TextChanged += new System.EventHandler(this.userNameTextBox_TextChanged);
             // 
             // passwordLabel
             // 

@@ -21,16 +21,6 @@ namespace FrontEnd
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void userNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void accountIconPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void registerLabel_Click(object sender, EventArgs e)
         {
             RegisterForm registerForm = new RegisterForm();
@@ -49,6 +39,10 @@ namespace FrontEnd
                 userNotFoundLabel.Text = ("Podaj poprawnie dane");
                 return;
             }
+
+            submitButton.Enabled = false;
+            userNameTextBox.Enabled = false;
+            passwordTextBox.Enabled = false;
 
             using (HttpClient client = new HttpClient())
             {
@@ -86,11 +80,16 @@ namespace FrontEnd
                                 resDate = jsonResponse["date"];
                                 resProfilePic = jsonResponse["profilePic"];
 
+                                MessageBox.Show("Zalogowano pomyślnie");
+
                                 //-------------TO DO send it to main form (profile)
                             }
                         }
                         catch (JsonException)
                         {
+                            submitButton.Enabled = true;
+                            userNameTextBox.Enabled = true;
+                            passwordTextBox.Enabled = true;
                             return;
                         }
                     }
@@ -110,7 +109,7 @@ namespace FrontEnd
                         }
                         catch (JsonException)
                         {
-                            return;
+                            MessageBox.Show("Błąd w zapytaniu");
                         }
                     }
                 }
