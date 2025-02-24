@@ -8,11 +8,12 @@ Content-Type: application/json
 {
   "name": "BAsia",
   "surname": "Kowalski",
-  "username": "basiaKasia",
+  "username": "1123basiaKddddasia",
   "password": "123456",
   "confirmPassword": "123456",
   "gender": "female",
-  "profilePic": "https://avatar.iran.liara.run/public/girl?username=$michal"
+  "profilePic": "https://avatar.iran.liara.run/public/girl?username=$michal",
+  "date": "2018-02-24"
 }
 
 ### 2. Login - Logowanie użytkownika

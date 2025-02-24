@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
 			required: true,
 			minlength: 6,
 		},
+		date: {
+			type: Date,
+			required: true,
+		},
 		gender: {
 			type: String,
 			required: true,
