@@ -61,7 +61,7 @@ app.post("/api/signup", async (req, res) => {
       await newUser.save();
       res.status(201).json({ message: "User created successfully" });
     } else {
-      res.status(400).json({ error: "Invalid user data" });
+      res.status(400).json({ error: "Błedne dane" });
     }
   } catch (error) {
     console.log("Error in signup controller", error.message);
@@ -79,7 +79,7 @@ app.post("/api/login", async (req, res) => {
     );
 
     if (!user || !isPasswordCorrect) {
-      return res.status(400).json({ error: "Invalid username or password" });
+      return res.status(400).json({ error: "Nieprawidłowy login lub hasło" });
     }
 
     res.status(200).json({

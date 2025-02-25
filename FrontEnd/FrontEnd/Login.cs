@@ -61,9 +61,6 @@ namespace FrontEnd
                         //hide error label
                         userNotFoundLabel.Visible = false;
 
-                        //declaration variables of response from server
-                        string resId,resUsername, resName, resSurname, resGender, resDate, resProfilePic;
-
                         string result = await response.Content.ReadAsStringAsync();
 
                         try
@@ -72,17 +69,20 @@ namespace FrontEnd
 
                             if (jsonResponse != null)
                             {
-                                resId = jsonResponse["_id"];
-                                resUsername = jsonResponse["username"];
-                                resName = jsonResponse["name"];
-                                resSurname = jsonResponse["surname"];
-                                resGender = jsonResponse["gender"];
-                                resDate = jsonResponse["date"];
-                                resProfilePic = jsonResponse["profilePic"];
+                                var dataToSend = new {
+                                    id = jsonResponse["_id"],
+                                    username = jsonResponse["username"],
+                                    name = jsonResponse["name"],
+                                    surname = jsonResponse["surname"],
+                                    gender = jsonResponse["gender"],
+                                    date = jsonResponse["date"],
+                                    profilePic = jsonResponse["profilePic"],
+                                    role = jsonResponse["role"]
+                                };
 
                                 MessageBox.Show("Zalogowano pomyślnie");
 
-                                //-------------TO DO send it to main form (profile)
+                                //-------------send it to main form (profile)
                             }
                         }
                         catch (JsonException)

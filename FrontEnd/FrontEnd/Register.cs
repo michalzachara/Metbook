@@ -10,12 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FrontEnd
 {
     public partial class RegisterForm : Form
     {
+
+        private string userName, firstName, surnName, userPassword, repeatPassword, userDate, sex;
+        bool male;
+        private int errors = 0;
         public RegisterForm()
         {
             InitializeComponent();
@@ -30,32 +36,127 @@ namespace FrontEnd
             this.Close();
         }
 
+        
+
         private async void submitButton_Click(object sender, EventArgs e)
         {
-            //---------------------------to  by pasowalo globalnie zrobic bo sie powtarza w onchange
-            string userName = userNameTextBox.Text;
-            string firstName = firstNameTextBox.Text;
-            string surnName = surnNameTextBox.Text;
-            string userPassword = passwordTextBox.Text;
-            string repeatPassword = repeatPasswordTextBox.Text;
-            string userDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            string sex;
-
-            bool male = maleRadioButton.Checked;
-            int errors = 0;
+            getAllData();
+            validateWholeForm();
 
 
+            if (errors > 0)
+            {
+                errors = 0;
+                return;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                var data = new {
+                    username = userName,
+                    surname = surnName,
+                    name = firstName,
+                    password = userPassword,
+                    confirmPassword = repeatPassword,
+                    gender = sex,
+                    date = userDate
+                };
+
+                string jsonString = JsonConvert.SerializeObject(data);
+
+                HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                try
+                {
+                    changeFormStatus(false, "Rejestrowanie...");
+
+                    var url = "https://metbook.onrender.com/api/signup";
+
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Rejestracja przebiegla pomyslnie, zaloguj sie do swojego konta", "Sukcess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoginForm loginForm = new LoginForm();
+                        this.Hide();
+                        loginForm.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        try
+                        {
+                            var errorResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+
+                            if (errorResponse != null && errorResponse.ContainsKey("error"))
+                            {
+                                errorUsername.Text = errorResponse["error"];
+                                errorUsername.Visible = true;
+                            }
+                            errorUsername.Visible = false;
+                        }
+                        catch (JsonException)
+                        {
+                            MessageBox.Show("Błąd w zapytaniu");
+                        }
+                    }
+
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("Wystapil blad przy rejestracji"+ex.Message);
+                    changeFormStatus(true, "Zarejestruj sie");
+                }
+            }
+        }
 
 
+        //show hide password
+        private void showConfirmPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showConfirmPass.Checked)
+                repeatPasswordTextBox.PasswordChar = '\0';
+            else
+                repeatPasswordTextBox.PasswordChar = '*';
+        }
 
-            //!!!!!!!!!!dodac checkboxy pokaz haslo i pokaz powtorz haslo
+        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPassword.Checked)
+                passwordTextBox.PasswordChar = '\0';
+            else
+                passwordTextBox.PasswordChar = '*';
+        }
 
+        private void changeFormStatus(bool status,  string message)
+        {
+            submitButton.Text = message;
+            submitButton.Enabled = status;
+            userNameTextBox.Enabled = status;
+            firstNameTextBox.Enabled = status;
+            surnNameTextBox.Enabled = status;
+            passwordTextBox.Enabled = status;
+            repeatPasswordTextBox.Enabled = status;
+            dateTimePicker1.Enabled = status;
+        }
 
+        private void getAllData()
+        {
+            userName = userNameTextBox.Text;
+            firstName = firstNameTextBox.Text;
+            surnName = surnNameTextBox.Text;
+            userPassword = passwordTextBox.Text;
+            repeatPassword = repeatPasswordTextBox.Text;
+            userDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            male = maleRadioButton.Checked;
 
+            if (male) { sex = "male"; }
+            else sex = "female";
+        }
 
-
-
-            // --------------------------------z tego zrobic funkcje zeby przejzysciej bylo
+        //validation
+        public void validateWholeForm()
+        {
             if (String.IsNullOrEmpty(userName))
             {
                 errorUsername.Text = "Pole wymagane";
@@ -151,7 +252,7 @@ namespace FrontEnd
                 errorConfirmPass.Visible = false;
                 if (repeatPassword != userPassword)
                 {
-                    errorConfirmPass.Text = "Hasla musza byc takie \nsame";
+                    errorConfirmPass.Text = "Hasla musza byc\ntakie same";
                     errorConfirmPass.Visible = true;
                     errors++;
                 }
@@ -196,79 +297,7 @@ namespace FrontEnd
                     errors++;
                 }
             }
-
-
-            if (male) { sex = "male"; }
-            else sex = "female";
-
-
-            if (errors > 0) return;
-
-            using (HttpClient client = new HttpClient())
-            {
-                var data = new {
-                    username = userName,
-                    surname = surnName,
-                    name = firstName,
-                    password = userPassword,
-                    confirmPassword = repeatPassword,
-                    gender = sex,
-                    date = userDate
-                };
-
-                string jsonString = JsonConvert.SerializeObject(data);
-
-                HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
-                try
-                {
-                    //czsami chwile trwa dodanie do bazy wiec zablokowac przycisk i pola
-                    //tak samo trzeba w loginie zrobic
-                    submitButton.Text = "Rejestrowanie...";
-                    submitButton.Enabled = false;
-                    userNameTextBox.Enabled = false;
-                    firstNameTextBox.Enabled = false;
-                    surnNameTextBox.Enabled = false;
-                    passwordTextBox.Enabled = false;
-                    repeatPasswordTextBox.Enabled = false;
-                    dateTimePicker1.Enabled = false;
-
-                    var url = "https://metbook.onrender.com/api/signup";
-
-                    HttpResponseMessage response = await client.PostAsync(url, content);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Rejestracja przebiegla pomyslnie, zaloguj sie do swojego konta", "Sukcess", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoginForm loginForm = new LoginForm();
-                        this.Hide();
-                        loginForm.ShowDialog();
-                        this.Close();
-                    }
-                    else
-                    {
-                        //w node trzeba zmienic error na error'Nazwaproblemu' zeby np wyswietlalo ze taki uzytkonik istnieje
-                        string errorContent = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show("Zła odpowiedź serwera: " + errorContent);
-                    }
-
-                } catch (Exception ex)
-                {
-                    submitButton.Text = "Zarejstruj";
-                    submitButton.Enabled = true;
-                    userNameTextBox.Enabled = true;
-                    firstNameTextBox.Enabled = true;
-                    surnNameTextBox.Enabled = true;
-                    passwordTextBox.Enabled = true;
-                    repeatPasswordTextBox.Enabled = true;
-                    dateTimePicker1.Enabled = true;
-
-                    MessageBox.Show("Wystapil blad przy rejestracji"+ex.Message);
-                }
-            }
         }
-
-
-        //walidacja onChange
 
         private void userNameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -348,7 +377,7 @@ namespace FrontEnd
                 errorPass.Visible = false;
                 if (passwordTextBox.Text.Length < 6)
                 {
-                    errorPass.Text = "Haslo musi miec minimum 6 znakow";
+                    errorPass.Text = "Haslo musi miec\nminimum 6 znakow";
                     errorPass.Visible = true;
                 }
                 else
@@ -371,7 +400,7 @@ namespace FrontEnd
 
                 if (repeatPasswordTextBox.Text.Length < 6)
                 {
-                    errorConfirmPass.Text = "Haslo musi miec minimum 6 znakow";
+                    errorConfirmPass.Text = "Haslo musi miec\nminimum 6 znakow";
                     errorConfirmPass.Visible = true;
                 }
                 else

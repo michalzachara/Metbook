@@ -54,6 +54,8 @@
             this.errorPass = new System.Windows.Forms.Label();
             this.errorConfirmPass = new System.Windows.Forms.Label();
             this.errorDate = new System.Windows.Forms.Label();
+            this.showPassword = new System.Windows.Forms.CheckBox();
+            this.showConfirmPass = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,10 +228,26 @@
             this.errorDate.ForeColor = System.Drawing.Color.Red;
             this.errorDate.Name = "errorDate";
             // 
+            // showPassword
+            // 
+            resources.ApplyResources(this.showPassword, "showPassword");
+            this.showPassword.Name = "showPassword";
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
+            // 
+            // showConfirmPass
+            // 
+            resources.ApplyResources(this.showConfirmPass, "showConfirmPass");
+            this.showConfirmPass.Name = "showConfirmPass";
+            this.showConfirmPass.UseVisualStyleBackColor = true;
+            this.showConfirmPass.CheckedChanged += new System.EventHandler(this.showConfirmPass_CheckedChanged);
+            // 
             // RegisterForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.showConfirmPass);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.errorDate);
             this.Controls.Add(this.errorConfirmPass);
             this.Controls.Add(this.errorPass);
@@ -287,5 +305,7 @@
         private System.Windows.Forms.Label errorPass;
         private System.Windows.Forms.Label errorConfirmPass;
         private System.Windows.Forms.Label errorDate;
+        private System.Windows.Forms.CheckBox showPassword;
+        private System.Windows.Forms.CheckBox showConfirmPass;
     }
 }
