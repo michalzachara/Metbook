@@ -38,6 +38,10 @@ const userSchema = new mongoose.Schema(
 			default: 'user',
 			enum: ['user', 'admin', 'moderator'],
 		},
+		createdAt: {
+			type: Date,
+			required: true
+		}
 	},
 	{ timestamps: true }
 )

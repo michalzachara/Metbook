@@ -925,13 +925,13 @@
     <value>25, 321</value>
   </data>
   <data name="showPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 17</value>
+    <value>84, 17</value>
   </data>
   <data name="showPassword.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
   <data name="showPassword.Text" xml:space="preserve">
-    <value>Pokarz haslo</value>
+    <value>Pokaż haslo</value>
   </data>
   <data name="&gt;&gt;showPassword.Name" xml:space="preserve">
     <value>showPassword</value>
@@ -955,13 +955,13 @@
     <value>242, 321</value>
   </data>
   <data name="showConfirmPass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 17</value>
+    <value>84, 17</value>
   </data>
   <data name="showConfirmPass.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
   <data name="showConfirmPass.Text" xml:space="preserve">
-    <value>Pokarz haslo</value>
+    <value>Pokaż haslo</value>
   </data>
   <data name="&gt;&gt;showConfirmPass.Name" xml:space="preserve">
     <value>showConfirmPass</value>

@@ -76,20 +76,31 @@ namespace FrontEnd
                                     surname = jsonResponse["surname"],
                                     gender = jsonResponse["gender"],
                                     date = jsonResponse["date"],
+                                    createdAt = jsonResponse["createdAt"],
                                     profilePic = jsonResponse["profilePic"],
-                                    role = jsonResponse["role"]
+                                    role = jsonResponse["role"],
                                 };
 
-                                MessageBox.Show("Zalogowano pomyślnie");
-
+                                UserData userData = new UserData(
+                                    dataToSend.id.ToString(),
+                                    dataToSend.username.ToString(),
+                                    dataToSend.name.ToString(),
+                                    dataToSend.surname.ToString(),
+                                    dataToSend.gender.ToString(),
+                                    dataToSend.date.ToString(),
+                                    dataToSend.createdAt.ToString(),
+                                    dataToSend.profilePic.ToString(),
+                                    dataToSend.role.ToString()
+                                );
+                                MainPageForm mainPageForm = new MainPageForm(userData);
+                                this.Hide();
+                                mainPageForm.ShowDialog();
+                                this.Close();
                                 //-------------send it to main form (profile)
                             }
                         }
                         catch (JsonException)
                         {
-                            submitButton.Enabled = true;
-                            userNameTextBox.Enabled = true;
-                            passwordTextBox.Enabled = true;
                             return;
                         }
                     }
@@ -105,11 +116,14 @@ namespace FrontEnd
                             {
                                 userNotFoundLabel.Text = errorResponse["error"];
                                 userNotFoundLabel.Visible = true;
+                               
                             }
                         }
                         catch (JsonException)
                         {
                             MessageBox.Show("Błąd w zapytaniu");
+                            userNotFoundLabel.Visible = true;
+                            
                         }
                     }
                 }
@@ -117,6 +131,9 @@ namespace FrontEnd
                 {
                     MessageBox.Show("Błąd w zapytaniu" + error);
                 }
+                submitButton.Enabled = true;
+                userNameTextBox.Enabled = true;
+                passwordTextBox.Enabled = true;
             }
         }
     }
