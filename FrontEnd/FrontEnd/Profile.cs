@@ -23,11 +23,21 @@ namespace FrontEnd
             firstNameLabel.Text = userData.Name.ToString();
             surnNameLabel.Text = userData.Surname.ToString();
             ageLabel.Text = "Wiek: " + CalculateAge(userData.Date).ToString();
-            if (userData.Gender == "male")  genderLabel.Text = "Płeć: Mężczyzna";
+            if (userData.Gender == "male") genderLabel.Text = "Płeć: Mężczyzna";
             else genderLabel.Text = "Płeć: Kobieta";
-            userSinceLabel.Text = "Użytkownik serwisu od "+(CalculateAge(userData.UserSince)*12)+" miesięcy";
+            userSinceLabel.Text = "Użytkownik serwisu od " + (CalculateMonths(userData.UserSince)) + " miesięcy";
+            if (userData.Role == "admin")
+            {
+                userRole.Text = "Twoja rola to administrator";
+                manageUsersButton.Visible = true;
+            }
+            else if (userData.Role == "moderator")
+            {
+                userRole.Text = "Twoja rola to moderator";
+                manageUsersButton.Visible = true;
+            }
         }
-        public int CalculateAge(string birthDateString)
+            public int CalculateAge(string birthDateString)
         {
             try
             {
@@ -50,6 +60,14 @@ namespace FrontEnd
                   return -1;
             }
         }
+        public int CalculateMonths(string userSinceDate)
+        {
+            DateTime userSince = DateTime.Parse(userSinceDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            DateTime today = DateTime.Today;
+            int monthsDifference = Math.Abs((userSince.Year - today.Year) * 12 + (userSince.Month - today.Month));
+
+            return monthsDifference;
+        }
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
@@ -57,6 +75,11 @@ namespace FrontEnd
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             this.Close();
+        }
+
+        private void manageUsersButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

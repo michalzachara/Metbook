@@ -69,7 +69,7 @@ namespace FrontEnd
                 {
                     changeFormStatus(false, "Rejestrowanie...");
 
-                    var url = "https://metbook.onrender.com/api/signup";
+                    var url = "http://localhost:3000/api/signup";
 
                     HttpResponseMessage response = await client.PostAsync(url, content);
 

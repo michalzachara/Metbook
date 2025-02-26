@@ -57,7 +57,7 @@ app.post("/api/signup", async (req, res) => {
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
       role: "user",
       date, 
-      createdAt: (currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDay()),
+      createdAt: (currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate()+1),
     });
 
     if (newUser) {

@@ -37,6 +37,9 @@
             this.genderLabel = new System.Windows.Forms.Label();
             this.userSinceLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.userRole = new System.Windows.Forms.Label();
+            this.profileSettingsButton = new System.Windows.Forms.Button();
+            this.manageUsersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +47,7 @@
             // 
             this.welcomeLabel.AutoSize = true;
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.welcomeLabel.Location = new System.Drawing.Point(230, 9);
+            this.welcomeLabel.Location = new System.Drawing.Point(145, 9);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(290, 29);
             this.welcomeLabel.TabIndex = 1;
@@ -126,11 +129,56 @@
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // userRole
+            // 
+            this.userRole.AutoSize = true;
+            this.userRole.Location = new System.Drawing.Point(344, 130);
+            this.userRole.Name = "userRole";
+            this.userRole.Size = new System.Drawing.Size(0, 13);
+            this.userRole.TabIndex = 9;
+            // 
+            // profileSettingsButton
+            // 
+            this.profileSettingsButton.BackColor = System.Drawing.Color.White;
+            this.profileSettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.profileSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileSettingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.profileSettingsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.profileSettingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.profileSettingsButton.Location = new System.Drawing.Point(387, 239);
+            this.profileSettingsButton.Name = "profileSettingsButton";
+            this.profileSettingsButton.Size = new System.Drawing.Size(195, 37);
+            this.profileSettingsButton.TabIndex = 10;
+            this.profileSettingsButton.Text = "Ustawienia Profilu";
+            this.profileSettingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.profileSettingsButton.UseVisualStyleBackColor = false;
+            // 
+            // manageUsersButton
+            // 
+            this.manageUsersButton.BackColor = System.Drawing.Color.White;
+            this.manageUsersButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.manageUsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageUsersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.manageUsersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manageUsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manageUsersButton.Location = new System.Drawing.Point(387, 196);
+            this.manageUsersButton.Name = "manageUsersButton";
+            this.manageUsersButton.Size = new System.Drawing.Size(195, 37);
+            this.manageUsersButton.TabIndex = 11;
+            this.manageUsersButton.Text = "Zarządzaj Użytkownikami";
+            this.manageUsersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.manageUsersButton.UseVisualStyleBackColor = false;
+            this.manageUsersButton.Visible = false;
+            this.manageUsersButton.Click += new System.EventHandler(this.manageUsersButton_Click);
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 307);
+            this.Controls.Add(this.manageUsersButton);
+            this.Controls.Add(this.profileSettingsButton);
+            this.Controls.Add(this.userRole);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.userSinceLabel);
             this.Controls.Add(this.genderLabel);
@@ -157,5 +205,8 @@
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.Label userSinceLabel;
         private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.Label userRole;
+        private System.Windows.Forms.Button profileSettingsButton;
+        private System.Windows.Forms.Button manageUsersButton;
     }
 }
