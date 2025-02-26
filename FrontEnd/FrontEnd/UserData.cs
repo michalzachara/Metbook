@@ -15,7 +15,7 @@ namespace FrontEnd
         public string Gender { get; set; }
         public string Date { get; set; }
 
-        public string userSince { get; set; }
+        public string UserSince { get; set; }
         public string ProfilePic { get; set; }
         public string Role { get; set; }
         
@@ -27,7 +27,7 @@ namespace FrontEnd
             Surname = surname;
             Gender = gender;
             Date = date;
-            this.userSince = userSince;
+            UserSince = userSince;
             ProfilePic = profilePic;
             Role = role;
         }

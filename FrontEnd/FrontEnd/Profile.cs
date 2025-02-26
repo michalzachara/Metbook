@@ -25,7 +25,7 @@ namespace FrontEnd
             ageLabel.Text = "Wiek: " + CalculateAge(userData.Date).ToString();
             if (userData.Gender == "male")  genderLabel.Text = "Płeć: Mężczyzna";
             else genderLabel.Text = "Płeć: Kobieta";
-            userSinceLabel.Text = "Użytkownik serwisu od "+(CalculateAge(userData.userSince)*12)+" miesięcy";
+            userSinceLabel.Text = "Użytkownik serwisu od "+(CalculateAge(userData.UserSince)*12)+" miesięcy";
         }
         public int CalculateAge(string birthDateString)
         {

@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\metbook\\metbook\\frontend\\frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\metbook\\metbook\\frontend\\frontend\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\metbook\\metbook\\frontend\\frontend\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\metbook\\metbook\\frontend\\frontend\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\metbook\\metbook\\frontend\\frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,24 +38,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserData.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\UserData.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\UserData.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\UserData.cs",
+              "RelativeToolTip": "FrontEnd\\UserData.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T19:08:09.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Profile.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Profile.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Profile.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Profile.cs",
+              "RelativeToolTip": "FrontEnd\\Profile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T19:08:03.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profile.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Profile.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Profile.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Profile.cs [Projekt]",
+              "RelativeToolTip": "FrontEnd\\Profile.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T19:07:34.421Z",
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Register.cs",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
               "RelativeDocumentMoniker": "FrontEnd\\Register.cs",
               "ToolTip": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
               "RelativeToolTip": "FrontEnd\\Register.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwD4AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAMwJIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T15:46:33.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Register.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
               "RelativeDocumentMoniker": "FrontEnd\\Register.cs",
@@ -55,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
               "RelativeDocumentMoniker": "FrontEnd\\Login.cs",
@@ -67,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Login.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\metbook\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
               "RelativeDocumentMoniker": "FrontEnd\\Login.cs",

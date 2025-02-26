@@ -45,7 +45,9 @@ app.post("/api/signup", async (req, res) => {
 
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
     const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+
     const currentDate = new Date();
+
     const newUser = new User({
       name,
       surname,
@@ -55,7 +57,7 @@ app.post("/api/signup", async (req, res) => {
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
       role: "user",
       date, 
-      createdAt: currentDate.getDate()
+      createdAt: (currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDay()),
     });
 
     if (newUser) {
