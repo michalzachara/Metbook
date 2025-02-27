@@ -35,9 +35,10 @@ PUT http://localhost:3000/api/profile
 Content-Type: application/json
 
 {
-  "_id": "67b73884a3bc62db9592ddbd",
-  "username": "newUsername",
+  "_id": "67c022b6d7518fab79b32392",
+  "username": "kam",
   "surname": "NewSurname",
   "name": "NewName",
-  "gender": "NewGender"
+  "gender": "NewGender",
+  "date" : "2010-02-04T00:00:00.000+00:00"
 }

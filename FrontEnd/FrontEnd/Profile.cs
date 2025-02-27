@@ -15,10 +15,10 @@ namespace FrontEnd
         public MainPageForm(UserData userData)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.userData = userData;
 
-            userAvatarPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
+            //Set a UserData to labels
             userAvatarPictureBox.LoadAsync(userData.ProfilePic);
             firstNameLabel.Text = userData.Name.ToString();
             surnNameLabel.Text = userData.Surname.ToString();
@@ -37,7 +37,10 @@ namespace FrontEnd
                 manageUsersButton.Visible = true;
             }
         }
-            public int CalculateAge(string birthDateString)
+        /// <summary>This function return a user age</summary>
+        /// <param name="birthDateString">BirthDate in string format</param>
+        /// <returns>age of user</returns>
+        public int CalculateAge(string birthDateString)
         {
             try
             {
@@ -57,9 +60,14 @@ namespace FrontEnd
             catch (Exception ex)
             {
                 MessageBox.Show($"Błąd parsowania daty: {ex}");
-                  return -1;
+                    return -1;
             }
         }
+        /// <summary>
+        /// This function calculate a how long user is on the service
+        /// </summary>
+        /// <param name="userSinceDate">Date when user create account</param>
+        /// <returns>How many months user is on the service</returns>
         public int CalculateMonths(string userSinceDate)
         {
             DateTime userSince = DateTime.Parse(userSinceDate, null, System.Globalization.DateTimeStyles.RoundtripKind);
@@ -68,7 +76,11 @@ namespace FrontEnd
 
             return monthsDifference;
         }
-
+        /// <summary>
+        /// Close window if user want to logout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logOutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -80,6 +92,18 @@ namespace FrontEnd
         private void manageUsersButton_Click(object sender, EventArgs e)
         {
 
+        }
+        /// <summary>
+        /// Open a profile settings window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void profileSettingsButton_Click(object sender, EventArgs e)
+        {
+            ProfileSettings profileSettingsForm = new ProfileSettings(userData);
+            this.Hide();
+            profileSettingsForm.ShowDialog();
+            this.Close();
         }
     }
 }

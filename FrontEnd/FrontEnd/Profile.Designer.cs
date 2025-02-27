@@ -152,6 +152,7 @@
             this.profileSettingsButton.Text = "Ustawienia Profilu";
             this.profileSettingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.profileSettingsButton.UseVisualStyleBackColor = false;
+            this.profileSettingsButton.Click += new System.EventHandler(this.profileSettingsButton_Click);
             // 
             // manageUsersButton
             // 

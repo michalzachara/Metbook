@@ -61,11 +61,11 @@
     <Compile Include="ManageUsers.Designer.cs">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="profileSettings.cs">
+    <Compile Include="ProfileSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="profileSettings.Designer.cs">
-      <DependentUpon>profileSettings.cs</DependentUpon>
+    <Compile Include="ProfileSettings.Designer.cs">
+      <DependentUpon>ProfileSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Register.cs">
       <SubType>Form</SubType>
@@ -87,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileSettings.resx">
+      <DependentUpon>ProfileSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register.aa.resx">
       <DependentUpon>Register.cs</DependentUpon>

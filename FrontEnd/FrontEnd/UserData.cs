@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FrontEnd
 {
+    /// <summary>
+    /// Store user data
+    /// </summary>
     public class UserData
     {
         public string Id { get; set; }

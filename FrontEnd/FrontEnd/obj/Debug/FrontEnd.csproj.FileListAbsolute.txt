@@ -16,7 +16,6 @@ C:\Users\Admin\Desktop\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.RegisterForm
 C:\Users\Admin\Desktop\Metbook\FrontEnd\FrontEnd\obj\Debug\aa\FrontEnd.resources.dll
 C:\Users\Admin\Desktop\Metbook\FrontEnd\FrontEnd\bin\Debug\Images\MetBook.png
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.AssemblyReference.cache
-C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.SuggestedBindingRedirects.cache
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.LoginForm.resources
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.RegisterForm.resources
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.Properties.Resources.resources
@@ -34,7 +33,6 @@ C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\bin\Debug\aa\FrontEnd.reso
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\aa\FrontEnd.resources.dll
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\bin\Debug\Newtonsoft.Json.dll
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\bin\Debug\Newtonsoft.Json.xml
-C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.mainPageForm.resources
 C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\bin\Debug\Images\accountIcon.png
 C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\bin\Debug\Images\MetBook.png
@@ -56,3 +54,6 @@ C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\obj\Debug\aa\FrontEnd.r
 C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.Up2Date
 C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.exe
 C:\Users\micha\Desktop\metbook\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.pdb
+C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.ManageUsers.resources
+C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.ProfileSettings.resources
+C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.Up2Date

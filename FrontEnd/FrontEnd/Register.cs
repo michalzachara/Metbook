@@ -37,7 +37,11 @@ namespace FrontEnd
         }
 
         
-
+        /// <summary>
+        /// make a post request to the server if the values are OK and register user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void submitButton_Click(object sender, EventArgs e)
         {
             getAllData();
@@ -127,7 +131,11 @@ namespace FrontEnd
             else
                 passwordTextBox.PasswordChar = '*';
         }
-
+        /// <summary>
+        /// change form status to depend on the status of request
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="message"></param>
         private void changeFormStatus(bool status,  string message)
         {
             submitButton.Text = message;
@@ -139,7 +147,9 @@ namespace FrontEnd
             repeatPasswordTextBox.Enabled = status;
             dateTimePicker1.Enabled = status;
         }
-
+        /// <summary>
+        /// Set all data to public variables
+        /// </summary>
         private void getAllData()
         {
             userName = userNameTextBox.Text;
