@@ -1,30 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\",
+  "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\pc\\onedrive\\pulpit\\metbook\\frontend\\frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\pc\\onedrive\\pulpit\\metbook\\frontend\\frontend\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\pc\\onedrive\\pulpit\\metbook\\frontend\\frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\cosik\\metbook\\frontend\\frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\cosik\\metbook\\frontend\\frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|c:\\users\\micha\\desktop\\cosik\\metbook\\frontend\\frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F395B65E-0E3A-46F8-BB1D-197D3C35DB64}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\profilesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,83 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserData.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\UserData.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\UserData.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\UserData.cs",
-              "RelativeToolTip": "FrontEnd\\UserData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T08:25:13.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProfileSettings.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\ProfileSettings.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\ProfileSettings.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\ProfileSettings.cs",
-              "RelativeToolTip": "FrontEnd\\ProfileSettings.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAwwDQAAAAxAAAAAAAAAA==",
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Login.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
+              "RelativeToolTip": "FrontEnd\\Login.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T07:56:19.881Z",
+              "WhenOpened": "2025-02-27T18:45:22.683Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Register.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
-              "RelativeToolTip": "FrontEnd\\Register.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAwwFAAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Login.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Login.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\Login.cs [Projekt]",
+              "RelativeToolTip": "FrontEnd\\Login.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T08:12:09.151Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-27T18:45:18.501Z",
+              "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Register.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Register.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Register.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Register.cs [Projekt]",
-              "RelativeToolTip": "FrontEnd\\Register.cs [Projekt]",
+              "Title": "ProfileSettings.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\profileSettings.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\profileSettings.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\profileSettings.cs [Projekt]",
+              "RelativeToolTip": "FrontEnd\\profileSettings.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:46:33.021Z",
+              "WhenOpened": "2025-02-27T15:36:24.535Z",
               "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Login.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
-              "RelativeToolTip": "FrontEnd\\Login.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAwwFQAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ProfileSettings.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\profileSettings.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\profileSettings.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\cosik\\Metbook\\FrontEnd\\FrontEnd\\profileSettings.cs",
+              "RelativeToolTip": "FrontEnd\\profileSettings.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAD0BAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:46:33.075Z",
+              "WhenOpened": "2025-02-27T07:56:19.881Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Login.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Login.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Pulpit\\Metbook\\FrontEnd\\FrontEnd\\Login.cs [Projekt]",
-              "RelativeToolTip": "FrontEnd\\Login.cs [Projekt]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:46:33.753Z",
-              "EditorCaption": " [Projekt]"
             }
           ]
         }

@@ -27,7 +27,9 @@ namespace FrontEnd
             changedNameTextBox.Text = userData.Name;
             changedSurnameTextBox.Text = userData.Surname;
             changedLoginTextBox.Text = userData.Username;
-
+            OLdPass.PasswordChar = '*';
+            NewPass.PasswordChar = '*';
+            ConfirmNewPass.PasswordChar = '*';
         }
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -50,7 +52,6 @@ namespace FrontEnd
                         username = changedLoginTextBox.Text,
                         surname = changedSurnameTextBox.Text,
                         name = changedNameTextBox.Text,
-                        gender = userData.Gender,
                         date = changedBirthDate.Value.ToString("yyyy-MM-dd")
                     };
 
@@ -63,6 +64,12 @@ namespace FrontEnd
                         if (response.IsSuccessStatusCode)
                         {
                             MessageBox.Show("Dane zostały zapisane");
+
+                            userData.Name = changedNameTextBox.Text;
+                            userData.Surname = changedSurnameTextBox.Text;
+                            userData.Username = changedLoginTextBox.Text;
+                            userData.Date = changedBirthDate.Value.ToString("yyyy-MM-dd");
+
                             changeFormStatus(true, "Zapisz");
                         }
                         else
@@ -73,11 +80,12 @@ namespace FrontEnd
                             {
                                 var errorResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
 
-                                if (errorResponse != null && errorResponse.ContainsKey("error"))
+                                if (errorResponse != null && errorResponse.ContainsKey("errorUsername"))
                                 {
-                                    MessageBox.Show(errorResponse["error"]);    
-                                }
-                                errorUsername.Visible = false;
+                                    errorUsername.Visible = true;
+                                    errorUsername.Text= errorResponse["errorUsername"];    
+                                }else
+                                    errorUsername.Visible = false;
                             }
                             catch (JsonException)
                             {
@@ -87,7 +95,7 @@ namespace FrontEnd
                             changeFormStatus(true, "Zapisz");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Błąd podczas zapisywania danych po stronie serwera");
                         changeFormStatus(true, "Zapisz");
@@ -103,6 +111,9 @@ namespace FrontEnd
             changedLoginTextBox.Enabled = status;
             changedBirthDate.Enabled = status;
             saveDataButton.Text = message;
+            NewPass.Enabled = status;
+            ConfirmNewPass.Enabled = status;
+            OLdPass.Enabled = status;
         }
         /// <summary>
         /// Check if form is valid
@@ -160,6 +171,151 @@ namespace FrontEnd
                 }
             }
             return error;
+        }
+
+        private async void changePasswordButton_Click(object sender, EventArgs e)
+        {
+            int error1 = 0;
+            if (OLdPass.Text.Length < 1) 
+            {
+                errorOldPass.Visible = true;
+                errorOldPass.Text = "Podaj aktualne haslo";
+                error1++;
+            }
+            else
+            {
+                errorOldPass.Visible = false;
+            }
+
+            if (NewPass.Text.Length < 6)
+            {
+                ErrorNewPass.Visible = true;
+                ErrorNewPass.Text = "Haslo musi miec co najmniej 6 znakow";
+                error1++;
+            }
+            else
+            {
+                ErrorNewPass.Visible = false;
+            }
+
+            if(ConfirmNewPass.Text.Length <6)
+            {
+                ErrorConfirmNewPass.Visible = true;
+                ErrorConfirmNewPass.Text = "Haslo musi miec co najmniej 6 znakow";
+                error1++;
+            }
+            else
+            {
+                ErrorConfirmNewPass.Visible = false;
+                if(NewPass.Text != ConfirmNewPass.Text)
+                {
+                    ErrorConfirmNewPass.Visible = true;
+                    ErrorConfirmNewPass.Text = "Hasla nie sa takie same";
+                    error1++;
+                }else
+                {
+                    ErrorConfirmNewPass.Visible = false;
+                }
+            }
+
+            if(OLdPass.Text == NewPass.Text)
+            {
+                ErrorNewPass.Visible = true;
+                ErrorNewPass.Text = "Nowe haslo nie moze byc takie samo jak stare";
+                error1++;
+            }
+            else
+            {
+                ErrorNewPass.Visible = false;
+            }
+
+
+            if (error1 > 0) return;
+
+            using (HttpClient client = new HttpClient())
+            {
+                var data = new
+                {
+                    _id = userData.Id,
+                    password = OLdPass.Text,
+                    newPassword = NewPass.Text,
+                    confirmNewPassword = ConfirmNewPass.Text
+                };
+
+                string jsonString = JsonConvert.SerializeObject(data);
+
+                HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                changeFormStatus(false, "Zapisywanie ...");
+                try
+                {
+                    var response1 = client.PutAsync("http://localhost:3000/api/profile/changePassword", content).Result;
+
+                    if (response1.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Zapisano nowe haslo");
+                        changeFormStatus(true, "Zapisz");
+                    }
+                    else
+                    {
+                        string result1 = await response1.Content.ReadAsStringAsync();
+
+                        try
+                        {
+                            var errorResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result1);
+
+                            if (errorResponse != null && errorResponse.ContainsKey("error"))
+                            {
+                                errorOldPass.Visible = true;
+                                errorOldPass.Text = errorResponse["error"];
+                            }
+                            else
+                                errorOldPass.Visible = false;
+                        }
+                        catch (JsonException)
+                        {
+                            MessageBox.Show("Błąd w zapytaniu");
+                        }
+
+                        MessageBox.Show("Błąd podczas zapisywania danych");
+                        changeFormStatus(true, "Zapisz");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Błąd podczas zapisywania danych po stronie serwera");
+                    changeFormStatus(true, "Zapisz");
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox1.Visible = checkBox1.Checked;
+            changePasswordButton.Visible = checkBox1.Checked;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+                OLdPass.PasswordChar = '\0';
+            else
+                OLdPass.PasswordChar = '*';
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+                NewPass.PasswordChar = '\0';
+            else
+                NewPass.PasswordChar = '*';
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked)
+                ConfirmNewPass.PasswordChar = '\0';
+            else
+                ConfirmNewPass.PasswordChar = '*';
         }
     }
 }

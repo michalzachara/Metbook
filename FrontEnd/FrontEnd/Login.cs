@@ -19,7 +19,17 @@ namespace FrontEnd
             accountIconPictureBox.Image = Image.FromFile("Images/accountIcon.png");
             passwordTextBox.PasswordChar = '*';
             this.StartPosition = FormStartPosition.CenterScreen;
+            //userNameTextBox.KeyDown += new KeyEventHandler(OnKeyDownHandler);
+            //passwordTextBox.KeyDown += new KeyEventHandler(OnKeyDownHandler);
         }
+
+        //static void OnKeyDownHandler(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        submitButton_Click();
+        //    }
+        //}
 
         private void registerLabel_Click(object sender, EventArgs e)
         {

@@ -118,7 +118,7 @@ app.get("/api/users", async (req, res) => {
 //---------------------------------------------------do zrobinia update profilu z zmianami pojedynczymh
 app.put("/api/profile", async (req, res) => {
   try {
-    const { _id, username, surname, name, gender, date, password, newpassword, confirmNewPassword } = req.body;
+    const { _id, username, surname, name, date } = req.body;
 
     const user = await User.findById(_id);
 
@@ -126,48 +126,68 @@ app.put("/api/profile", async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
+    // Sprawdzenie czy nowa nazwa użytkownika jest zajęta
     if (username) {
       const existingUser = await User.findOne({ username });
-
       if (existingUser && existingUser._id.toString() !== _id) {
-        return res.status(400).json({ error: "Username already taken" });
+        return res.status(400).json({ errorUsername: "Username already taken" });
       }
     } 
 
-    //czy ma 13 lat
-    if(!isAtLeast13YearsOld(date)){
-      return res.status(400).json({ error: "You must be over 13 years" })
+    // Sprawdzenie, czy użytkownik ma co najmniej 13 lat
+    if (!isAtLeast13YearsOld(date)) {
+      return res.status(400).json({ error: "You must be over 13 years old" });
     }
 
-    
-    const isPasswordCorrect = await bcrypt.compare(
-      password,
-      user?.password || ""
-    );
-    
-    //sparwdza poprawnosc hasla do zmiany
-    if(!isPasswordCorrect){
-      return res.status(400).json({ error: "Invalid password" });
-    }
-
-    if(newpassword !== confirmNewPassword){
-      return res.status(400).json({ error: "new password and confirm password dont match" });
-    }
-
+    // Aktualizacja danych użytkownika
     user.username = username || user.username;
     user.surname = surname || user.surname;
     user.name = name || user.name;
-    user.gender = gender || user.gender;
     user.date = date || user.date;
 
     await user.save();
 
-    res.status(200).json({ message: "User updated successfully", user });
+    res.status(200).json({ message: "User updated successfully"});
   } catch (error) {
-    console.log("Error in update user controller", error.message);
+    console.error("Error in update user controller:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+app.put("/api/profile/changePassword", async (req, res) => {
+  const { _id, password, newPassword, confirmNewPassword } = req.body;
+
+  try {
+    const user = await User.findById(_id);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Sprawdzenie poprawności aktualnego hasła
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+    if (!isPasswordCorrect) {
+      return res.status(400).json({ error: "Invalid password" });
+    }
+
+    // Sprawdzenie poprawności nowego hasła
+    if (newPassword || confirmNewPassword) {
+      if (newPassword !== confirmNewPassword) {
+        return res.status(400).json({ error: "New password and confirm password do not match" });
+      }
+      // Hashowanie nowego hasła przed zapisaniem
+      user.password = await bcrypt.hash(newPassword, 10);
+    }
+
+    await user.save();  
+
+    res.status(200).json({ message: "Password changed successfully" });
+  } catch (error) {
+    console.error("Error in change password controller:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+})
+
 
 app.get("/api/search", async (req, res) => {
     //---------------------------------------do zrobienia moderator wyszukuje tylko uzytkonikow a admin tylko moderatorow
