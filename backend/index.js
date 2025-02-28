@@ -190,74 +190,99 @@ app.put("/api/profile/changePassword", async (req, res) => {
 
 
 app.get("/api/search", async (req, res) => {
-    //---------------------------------------do zrobienia moderator wyszukuje tylko uzytkonikow a admin tylko moderatorow
   try {
     const { query } = req.query;
+    const userRole = req.user.role;  // Załóżmy, że `req.user` zawiera dane o zalogowanym użytkowniku
 
     if (!query) {
       return res.status(400).json({ error: "Query parameter is required" });
     }
 
-    const users = await User.find({
+    // Budowanie zapytania do bazy w zależności od roli
+    let searchCriteria = {
       $or: [
         { name: { $regex: query, $options: "i" } },
         { surname: { $regex: query, $options: "i" } },
         { login: { $regex: query, $options: "i" } },
       ],
-    })
+    };
+
+    // Jeśli użytkownik jest moderatorem, szukamy tylko użytkowników
+    if (userRole === 'moderator') {
+      searchCriteria.role = 'user';
+    }
+    
+    // Jeśli użytkownik jest administratorem, szukamy tylko moderatorów
+    if (userRole === 'admin') {
+      searchCriteria.role = 'moderator';
+    }
+
+    const users = await User.find(searchCriteria)
       .select("-password")
       .sort({ name: 1 })
       .limit(20);
 
     res.status(200).json(users);
-
   } catch (error) {
     console.error("Błąd podczas wyszukiwania użytkowników:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-app.delete("/api/deleteUser", async (req, res) => {
+
+app.delete("/api/users/:id", async (req, res) => {
   try {
-    const { _id } = req.body;
-    const user = await User.findByIdAndDelete(_id);
+    const { id } = req.params; // Pobranie ID z URL
+    const user = await User.findByIdAndDelete(id);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
     res.status(200).json({ message: "User deleted successfully" });
-  }
-  catch (error) {
+  } catch (error) {
     console.error("Błąd podczas usuwania użytkownika:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
-})
+});
 
 
 app.put("/api/changeRole", async (req, res) => {
   try {
-    const { _id, role } = req.body; //id zmiany uzytkonika
-    const user = await User.findById(_id);
+    const { _id, role } = req.body;  // Pobranie id użytkownika oraz roli
 
-    //moderator zmienia z usera na moderatora
-    if(role == "moderator"  && user.role !== "admin") {
+    // Sprawdzenie, czy role jest poprawna
+    if (!role || !["_user", "_moderator", "_admin"].includes(role)) {
+      return res.status(400).json({ error: "Invalid role" });
+    }
+
+    const user = await User.findById(_id);  // Wyszukaj użytkownika po ID
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Logika zmiany roli:
+    // - Użytkownik -> Moderator
+    if (role === "moderator" && user.role !== "admin") {
       user.role = user.role === "user" ? "moderator" : "user";
     }
 
-    //admin zmienia z moderatora na admina
-    if(role == "admin" && user.role !== "user") {
+    // - Moderator -> Admin
+    if (role === "admin" && user.role !== "user") {
       user.role = user.role === "moderator" ? "admin" : "moderator";
     }
 
+    // Zapisanie zaktualizowanego użytkownika
     await user.save();
+
+    // Odpowiedź z sukcesem
     res.status(200).json({ message: "Role changed successfully", user });
-  }
-  catch(error){
+  } catch (error) {
     console.log("Error in role controller", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
-})
+});
 
 app.listen(PORT, () => {
   connect();

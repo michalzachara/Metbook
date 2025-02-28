@@ -91,7 +91,10 @@ namespace FrontEnd
 
         private void manageUsersButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Manage manage = new Manage(userData);
+            manage.ShowDialog();
+            this.Close();
         }
         /// <summary>
         /// Open a profile settings window
