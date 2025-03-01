@@ -40,6 +40,7 @@
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.findUser = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.notFound = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@
             this.groupBox1.Controls.Add(this.username1);
             this.groupBox1.Controls.Add(this.name1);
             this.groupBox1.Controls.Add(this.pic1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 122);
+            this.groupBox1.Location = new System.Drawing.Point(51, 289);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(307, 101);
             this.groupBox1.TabIndex = 2;
@@ -102,7 +103,6 @@
             this.mod1.TabIndex = 4;
             this.mod1.Text = "nadaj moderatora";
             this.mod1.UseVisualStyleBackColor = true;
-            this.mod1.Click += new System.EventHandler(this.mod1_Click);
             // 
             // role1
             // 
@@ -124,7 +124,6 @@
             this.delete1.TabIndex = 3;
             this.delete1.Text = "usun";
             this.delete1.UseVisualStyleBackColor = false;
-            this.delete1.Click += new System.EventHandler(this.delete1_Click);
             // 
             // username1
             // 
@@ -172,11 +171,25 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Wyszukaj po imieniu / nazwisku/ loginie";
             // 
+            // notFound
+            // 
+            this.notFound.AutoSize = true;
+            this.notFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.notFound.ForeColor = System.Drawing.Color.Red;
+            this.notFound.Location = new System.Drawing.Point(76, 161);
+            this.notFound.Name = "notFound";
+            this.notFound.Size = new System.Drawing.Size(386, 39);
+            this.notFound.TabIndex = 5;
+            this.notFound.Text = "NIe znaleziono wynikow";
+            this.notFound.Visible = false;
+            this.notFound.Click += new System.EventHandler(this.notFound_Click);
+            // 
             // Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 539);
+            this.Controls.Add(this.notFound);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.findUser);
             this.Controls.Add(this.groupBox1);
@@ -206,5 +219,6 @@
         private System.Windows.Forms.TextBox findUser;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label id1;
+        private System.Windows.Forms.Label notFound;
     }
 }

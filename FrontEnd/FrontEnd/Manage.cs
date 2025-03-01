@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -32,15 +33,23 @@ namespace FrontEnd
 
             try
             {
-                HttpResponseMessage response = await client.GetAsync(url);
+                var requestData = new { role = this.userData.Role };
+                string json = JsonConvert.SerializeObject(requestData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PostAsync(url, content);
                 response.EnsureSuccessStatusCode();  // Throw an exception if HTTP response is not success
 
                 string result = await response.Content.ReadAsStringAsync();
                 List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(result);
 
-                if (users != null)
+                if (users != null && users.Count > 0)
                 {
                     UpdateUI(users);
+                }
+                else
+                {
+                    UpdateUI(new List<UserData>()); // Reset UI if no users are returned
                 }
             }
             catch (HttpRequestException httpEx)
@@ -56,140 +65,163 @@ namespace FrontEnd
                 MessageBox.Show("Nieoczekiwany błąd: " + ex.Message);
             }
         }
+
+
         /// <summary>
         /// Update UI with user data
         /// </summary>
         /// <param name="users">The list of the users returned form server</param>
         private void UpdateUI(List<UserData> users)
         {
-            // Constants for dynamic layout
+            // Znajdź lub utwórz panel przewijania
+            Panel scrollablePanel = this.Controls.OfType<Panel>().FirstOrDefault();
+            if (scrollablePanel == null)
+            {
+                scrollablePanel = new Panel();
+                scrollablePanel.Width = 700;
+                scrollablePanel.Location = new Point(10, 122);
+                this.Controls.Add(scrollablePanel);
+            }
+
+            // Resetowanie zawartości panelu
+            scrollablePanel.Controls.Clear();
+
+            // Jeśli lista użytkowników jest pusta, zakończ działanie
+            if (users.Count == 0)
+            {
+                return;
+            }
+
+            // Stałe do układu
             int groupBoxWidth = 320;
             int groupBoxHeight = 120;
-            int xOffset = 10; // Position X for first column
-            int yOffset = 10; // Postion Y for first row
-            int spacing = 10; // Gap between GroupBoxes
-            int maxPanelHeight = 400; // Max height for scrollable panel
-            int counter = 0;  // counter for dynamic layout
-
-            // Create scrollable panel
-            Panel scrollablePanel = new Panel();
-            scrollablePanel.Width = 700; // Width of the panel for two columns
-            scrollablePanel.Location = new Point(10, 122);
-            this.Controls.Add(scrollablePanel);
+            int xOffset = 10;
+            int yOffset = 10;
+            int spacing = 10;
+            int maxPanelHeight = 400;
+            int counter = 0;
 
             foreach (var user in users)
             {
-                if(user.Role == "admin" || user.Role == "moderator") // if user is admin or moderator, skip
+                if (user.Role == "admin" || user.Role == "moderator")
                 {
                     continue;
                 }
-                // Create GroupBox for user
-                GroupBox groupBox = new GroupBox();
-                groupBox.Text = "Użytkownik";
-                groupBox.Width = groupBoxWidth;
-                groupBox.Height = groupBoxHeight;
-                groupBox.Location = new Point(xOffset, yOffset);
 
-                // Create PictureBox for profile picture
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Size = new Size(50, 50);
-                pictureBox.Location = new Point(10, 25);
-                pictureBox.BorderStyle = BorderStyle.FixedSingle;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                // Tworzenie GroupBox
+                GroupBox groupBox = new GroupBox
+                {
+                    Text = "Użytkownik",
+                    Width = groupBoxWidth,
+                    Height = groupBoxHeight,
+                    Location = new Point(xOffset, yOffset)
+                };
+
+                // Tworzenie PictureBox
+                PictureBox pictureBox = new PictureBox
+                {
+                    Size = new Size(50, 50),
+                    Location = new Point(10, 25),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
                 if (!string.IsNullOrEmpty(user.ProfilePic))
                 {
                     pictureBox.LoadAsync(user.ProfilePic);
                 }
 
-                // Label for name
-                Label lblName = new Label();
-                lblName.Text = user.Name + " " + user.Surname;
-                lblName.Font = new Font("Arial", 10, FontStyle.Bold);
-                lblName.Location = new Point(70, 20);
-                lblName.AutoSize = true;
+                // Tworzenie etykiet
+                Label lblName = new Label 
+                { 
+                    Text = user.Name + " " + user.Surname, 
+                    Font = new Font("Arial", 10, FontStyle.Bold), 
+                    Location = new Point(70, 20), 
+                    AutoSize = true 
+                };
 
-                // Label for username
-                Label lblUsername = new Label();
-                lblUsername.Text = "@" + user.Username;
-                lblUsername.Font = new Font("Arial", 9, FontStyle.Italic);
-                lblUsername.ForeColor = Color.Gray;
-                lblUsername.Location = new Point(70, 40);
-                lblUsername.AutoSize = true;
+                Label lblUsername = new Label 
+                { 
+                    Text = "@" + user.Username, 
+                    Font = new Font("Arial", 9, FontStyle.Italic), 
+                    ForeColor = Color.Gray, 
+                    Location = new Point(70, 40), 
+                    AutoSize = true 
+                };
 
-                // Label for roli
-                Label lblRole = new Label();
-                lblRole.Text = "Rola: " + user.Role;
-                lblRole.ForeColor = Color.Orange;
-                lblRole.Location = new Point(70, 60);
-                lblRole.AutoSize = true;
+                Label lblRole = new Label 
+                { 
+                    Text = "Rola: " + user.Role, 
+                    ForeColor = Color.Orange, 
+                    Location = new Point(70, 60), 
+                    AutoSize = true 
+                };
 
-                // Label for ID
-                Label lblId = new Label();
-                lblId.Text = "ID: " + user._id.ToString();
-                lblId.ForeColor = Color.Orange;
-                lblId.Font = new Font("Arial", 8, FontStyle.Regular);
-                lblId.Location = new Point(150, 40);
-                lblId.AutoSize = true;
+                Label lblId = new Label 
+                { 
+                    Text = "ID: " + user._id.ToString(), 
+                    ForeColor = Color.Orange, 
+                    Font = new Font("Arial", 8, FontStyle.Regular), 
+                    Location = new Point(150, 40), 
+                    AutoSize = true 
+                };
 
-                // Button "Usuń"
-                Button btnRemove = new Button();
-                btnRemove.Text = "Usuń";
-                btnRemove.BackColor = Color.Red;
-                btnRemove.ForeColor = Color.White;
-                btnRemove.FlatStyle = FlatStyle.Flat;
-                btnRemove.Location = new Point(70, 85);
-                btnRemove.Size = new Size(60, 25);
-
-                // Button "Nadaj moderatora"
-                Button btnMod = new Button();
-                if (userData.Role == "admin") // Only admin can assign moderator role
+                
+                //admin moze usuwac moderator nie
+                Button btnRemove = new Button()
+                //if (this.userData.Role == "admin")
                 {
-                    btnMod.Text = "Nadaj moderatora";
-                    btnMod.FlatStyle = FlatStyle.Flat;
-                    btnMod.Location = new Point(140, 85);
-                    btnMod.Size = new Size(120, 25);
-                }
+                    Text = "Usuń",
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Location = new Point(70, 85),
+                    Size = new Size(60, 25),
+                };
+
+                btnRemove.Click += (sender, e) => delete(sender, e);
 
 
-                // Add controls to GroupBox
+                Button btnMod = new Button()
+                {
+                    Text = user.Role == "user" ? "Mianuj na moderatora" : "Usun moderatora",
+                    FlatStyle = FlatStyle.Flat,
+                    Location = new Point(140, 85),
+                    Size = new Size(120, 25),
+                };
+
+                btnMod.Click += (sender, e) => changeRole(sender, e);
+
+                // Dodanie elementów do GroupBox
                 groupBox.Controls.Add(pictureBox);
                 groupBox.Controls.Add(lblName);
                 groupBox.Controls.Add(lblUsername);
                 groupBox.Controls.Add(lblRole);
                 groupBox.Controls.Add(lblId);
                 groupBox.Controls.Add(btnRemove);
-                if(userData.Role == "admin") groupBox.Controls.Add(btnMod);
+                groupBox.Controls.Add(btnMod);
 
-                // Add GroupBox to scrollable panel
+                if (this.userData.Role == "admin") groupBox.Controls.Add(btnMod);
+
                 scrollablePanel.Controls.Add(groupBox);
 
-                // **Dynamic set on the layout**
                 counter++;
-                if (counter % 2 == 0) // If its the second column go to next row
+                if (counter % 2 == 0)
                 {
                     xOffset = 10;
-                    yOffset += groupBoxHeight + spacing; // move down
+                    yOffset += groupBoxHeight + spacing;
                 }
                 else
                 {
-                    xOffset = groupBoxWidth + 20; // Move right to the second column
+                    xOffset = groupBoxWidth + 20;
                 }
-                // **Calculate height of the panel**
-                int rowCount = (int)Math.Ceiling(counter / 2.0); // Number of rows
-                int requiredHeight = rowCount * (groupBoxHeight + spacing); // required height
 
-                // If required height is greater than max height, enable scrolling
-                if (requiredHeight > maxPanelHeight)
-                {
-                    scrollablePanel.Height = maxPanelHeight;
-                    scrollablePanel.AutoScroll = true;
-                }
-                else
-                {
-                    scrollablePanel.Height = requiredHeight;
-                }
+                int rowCount = (int)Math.Ceiling(counter / 2.0);
+                int requiredHeight = rowCount * (groupBoxHeight + spacing);
+                scrollablePanel.Height = requiredHeight > maxPanelHeight ? maxPanelHeight : requiredHeight;
+                scrollablePanel.AutoScroll = requiredHeight > maxPanelHeight;
             }
         }
+
 
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -199,20 +231,160 @@ namespace FrontEnd
             mainPageForm.ShowDialog();
             this.Close();
         }
-        private async void delete1_Click(object sender, EventArgs e)
+        private async void delete(object sender, EventArgs e)
         {
-          
+            Button clickedButton = sender as Button;
+            if (clickedButton == null) return;
+
+
+            GroupBox parentGroupBox = clickedButton.Parent as GroupBox;
+            if (parentGroupBox == null) return;
+
+            Label lblId = parentGroupBox.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("ID: "));
+            if (lblId == null) return;
+
+            string userId = lblId.Text.Replace("ID: ", "").Trim();
+
+            DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć użytkownika o ID: {userId}?",
+                                                  "Potwierdzenie",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Warning);
+
+            if (result != DialogResult.Yes) return;
+
+            string url = "http://localhost:3000/api/users/";
+
+            var requestData = new { _id = userId, role = this.userData.Role };
+            var json = JsonConvert.SerializeObject(requestData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                HttpResponseMessage response = await client.DeleteAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Użytkownik został pomyślnie usunięty.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _ = LoadDataAsync(); 
+                }
+                else
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Błąd usuwania użytkownika: " + errorMessage, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (HttpRequestException httpEx)
+            {
+                MessageBox.Show("Błąd HTTP: " + httpEx.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Błąd JSON: " + jsonEx.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nieoczekiwany błąd: " + ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private async void mod1_Click(object sender, EventArgs e)
+        private async void changeRole(object sender, EventArgs e)
         {
-          
+            Button clickedButton = sender as Button;
+            if (clickedButton == null) return;
+
+            GroupBox parentGroupBox = clickedButton.Parent as GroupBox;
+            if (parentGroupBox == null) return;
+
+            Label lblId = parentGroupBox.Controls.OfType<Label>().FirstOrDefault(l => l.Text.StartsWith("ID: "));
+            if (lblId == null) return;
+
+            string userId = lblId.Text.Replace("ID: ", "").Trim();
+
+
+            var requestData = new { _id = userId, role = this.userData.Role };
+            var json = JsonConvert.SerializeObject(requestData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                string url = "http://localhost:3000/api/changeRole";
+                HttpResponseMessage response = await client.PutAsync(url, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    _ = LoadDataAsync();
+                    MessageBox.Show($"Użytkownik o ID: {userId} został pomyślnie zaktualizowany.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Błąd zmiany roli użytkownika: " + errorMessage, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (HttpRequestException httpEx)
+            {
+                MessageBox.Show("Błąd HTTP: " + httpEx.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Błąd JSON: " + jsonEx.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nieoczekiwany błąd: " + ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void findUser_TextChanged(object sender, EventArgs e)
         {
-           
+            string query = findUser.Text.Trim().ToString(); 
+            if (string.IsNullOrEmpty(query))
+            {
+                _ = LoadDataAsync();
+                return;
+            }
+
+            string url = "http://localhost:3000/api/search/";
+            var requestData = new { query = query, role = this.userData.Role }; 
+            var json = JsonConvert.SerializeObject(requestData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                response.EnsureSuccessStatusCode();
+
+                string result = await response.Content.ReadAsStringAsync();
+                List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(result);
+
+                if (users != null && users.Count > 0)
+                {
+                    notFound.Visible = false;
+                    UpdateUI(users);
+                }
+                else
+                {
+                    UpdateUI(new List<UserData>());
+                    notFound.Visible = true;
+                }
+            }
+            catch (HttpRequestException httpEx)
+            {
+                MessageBox.Show("Błąd HTTP: " + httpEx.Message);
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Błąd parsowania JSON: " + jsonEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nieoczekiwany błąd: " + ex.Message);
+            }
         }
 
+        private void notFound_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
