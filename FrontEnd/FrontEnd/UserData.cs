@@ -11,7 +11,7 @@ namespace FrontEnd
     /// </summary>
     public class UserData
     {
-        public string Id { get; set; }
+        public string _id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -24,7 +24,7 @@ namespace FrontEnd
         
         public UserData(string id, string username, string name, string surname, string gender, string date, string userSince ,string profilePic, string role)
         {
-            Id = id;
+            _id = id;
             Username = username;
             Name = name;
             Surname = surname;

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -20,10 +21,11 @@ namespace FrontEnd
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.userData = userData;
-            groupBox1.Controls["label1"].Text = "Hejka";
-            _ = LoadDataAsync();  // Uruchomienie bez oczekiwania, by nie blokować UI
+            _ = LoadDataAsync();  // Enable async method to run without waiting for it to complete
         }
-
+        /// <summary>
+        /// Load user data from server
+        /// </summary>
         private async Task LoadDataAsync()
         {
             string url = "http://localhost:3000/api/users";
@@ -31,7 +33,7 @@ namespace FrontEnd
             try
             {
                 HttpResponseMessage response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();  // Rzuca wyjątek, jeśli kod HTTP nie jest sukcesem
+                response.EnsureSuccessStatusCode();  // Throw an exception if HTTP response is not success
 
                 string result = await response.Content.ReadAsStringAsync();
                 List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(result);
@@ -54,222 +56,162 @@ namespace FrontEnd
                 MessageBox.Show("Nieoczekiwany błąd: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Update UI with user data
+        /// </summary>
+        /// <param name="users">The list of the users returned form server</param>
         private void UpdateUI(List<UserData> users)
         {
-            if (InvokeRequired)
+            // Constants for dynamic layout
+            int groupBoxWidth = 320;
+            int groupBoxHeight = 120;
+            int xOffset = 10; // Position X for first column
+            int yOffset = 10; // Postion Y for first row
+            int spacing = 10; // Gap between GroupBoxes
+            int maxPanelHeight = 400; // Max height for scrollable panel
+            int counter = 0;  // counter for dynamic layout
+
+            // Create scrollable panel
+            Panel scrollablePanel = new Panel();
+            scrollablePanel.Width = 700; // Width of the panel for two columns
+            scrollablePanel.Location = new Point(10, 122);
+            this.Controls.Add(scrollablePanel);
+
+            foreach (var user in users)
             {
-                Invoke(new Action(() => UpdateUI(users)));
-                return;
-            }
-
-            GroupBox[] boxes = new GroupBox[] { groupBox1, groupBox2, groupBox3, groupBox4, groupBox5, groupBox6 };
-
-            int count = Math.Min(users.Count, boxes.Length); // Unikamy błędu, gdy użytkowników jest mniej niż 6
-
-            for (int i = 0; i < count; i++)
-            {
-                var user = users[i];
-
-                boxes[i].Visible = true;
-
-                if (boxes[i].Controls[$"name{i}"] is Label nameLabel)
-                    nameLabel.Text = $"{user.Name} {user.Surname}";
-
-                if (boxes[i].Controls[$"username{i}"] is Label usernameLabel)
-                    usernameLabel.Text = user.Username;
-
-                if (boxes[i].Controls[$"role{i}"] is Label roleLabel)
-                    roleLabel.Text = user.Role;
-
-                if (boxes[i].Controls[$"id{i}"] is Label idLabel)
-                    idLabel.Text = user.Id;
-
-                if (!string.IsNullOrEmpty(user.ProfilePic) && boxes[i].Controls[$"pic{i}"] is PictureBox pictureBox)
+                if(user.Role == "admin" || user.Role == "moderator") // if user is admin or moderator, skip
                 {
-                    try
-                    {
-                        pictureBox.LoadAsync(user.ProfilePic);
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Blad pobierania obraznu");
-                    }
+                    continue;
+                }
+                // Create GroupBox for user
+                GroupBox groupBox = new GroupBox();
+                groupBox.Text = "Użytkownik";
+                groupBox.Width = groupBoxWidth;
+                groupBox.Height = groupBoxHeight;
+                groupBox.Location = new Point(xOffset, yOffset);
+
+                // Create PictureBox for profile picture
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Size = new Size(50, 50);
+                pictureBox.Location = new Point(10, 25);
+                pictureBox.BorderStyle = BorderStyle.FixedSingle;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (!string.IsNullOrEmpty(user.ProfilePic))
+                {
+                    pictureBox.LoadAsync(user.ProfilePic);
+                }
+
+                // Label for name
+                Label lblName = new Label();
+                lblName.Text = user.Name + " " + user.Surname;
+                lblName.Font = new Font("Arial", 10, FontStyle.Bold);
+                lblName.Location = new Point(70, 20);
+                lblName.AutoSize = true;
+
+                // Label for username
+                Label lblUsername = new Label();
+                lblUsername.Text = "@" + user.Username;
+                lblUsername.Font = new Font("Arial", 9, FontStyle.Italic);
+                lblUsername.ForeColor = Color.Gray;
+                lblUsername.Location = new Point(70, 40);
+                lblUsername.AutoSize = true;
+
+                // Label for roli
+                Label lblRole = new Label();
+                lblRole.Text = "Rola: " + user.Role;
+                lblRole.ForeColor = Color.Orange;
+                lblRole.Location = new Point(70, 60);
+                lblRole.AutoSize = true;
+
+                // Label for ID
+                Label lblId = new Label();
+                lblId.Text = "ID: " + user._id.ToString();
+                lblId.ForeColor = Color.Orange;
+                lblId.Font = new Font("Arial", 8, FontStyle.Regular);
+                lblId.Location = new Point(150, 40);
+                lblId.AutoSize = true;
+
+                // Button "Usuń"
+                Button btnRemove = new Button();
+                btnRemove.Text = "Usuń";
+                btnRemove.BackColor = Color.Red;
+                btnRemove.ForeColor = Color.White;
+                btnRemove.FlatStyle = FlatStyle.Flat;
+                btnRemove.Location = new Point(70, 85);
+                btnRemove.Size = new Size(60, 25);
+
+                // Button "Nadaj moderatora"
+                Button btnMod = new Button();
+                if (userData.Role == "admin") // Only admin can assign moderator role
+                {
+                    btnMod.Text = "Nadaj moderatora";
+                    btnMod.FlatStyle = FlatStyle.Flat;
+                    btnMod.Location = new Point(140, 85);
+                    btnMod.Size = new Size(120, 25);
+                }
+
+
+                // Add controls to GroupBox
+                groupBox.Controls.Add(pictureBox);
+                groupBox.Controls.Add(lblName);
+                groupBox.Controls.Add(lblUsername);
+                groupBox.Controls.Add(lblRole);
+                groupBox.Controls.Add(lblId);
+                groupBox.Controls.Add(btnRemove);
+                if(userData.Role == "admin") groupBox.Controls.Add(btnMod);
+
+                // Add GroupBox to scrollable panel
+                scrollablePanel.Controls.Add(groupBox);
+
+                // **Dynamic set on the layout**
+                counter++;
+                if (counter % 2 == 0) // If its the second column go to next row
+                {
+                    xOffset = 10;
+                    yOffset += groupBoxHeight + spacing; // move down
+                }
+                else
+                {
+                    xOffset = groupBoxWidth + 20; // Move right to the second column
+                }
+                // **Calculate height of the panel**
+                int rowCount = (int)Math.Ceiling(counter / 2.0); // Number of rows
+                int requiredHeight = rowCount * (groupBoxHeight + spacing); // required height
+
+                // If required height is greater than max height, enable scrolling
+                if (requiredHeight > maxPanelHeight)
+                {
+                    scrollablePanel.Height = maxPanelHeight;
+                    scrollablePanel.AutoScroll = true;
+                }
+                else
+                {
+                    scrollablePanel.Height = requiredHeight;
                 }
             }
-
-            groupBox1.Controls["label1"].Text = "Załadowano " + users.Count + " użytkowników";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void goBackButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             MainPageForm mainPageForm = new MainPageForm(userData);
             mainPageForm.ShowDialog();
             this.Close();
         }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void delete1_Click(object sender, EventArgs e)
         {
-            if (sender is Button deleteButton)
-            {
-                // Znalezienie GroupBox, w którym znajduje się przycisk
-                GroupBox parentGroupBox = deleteButton.Parent as GroupBox;
-
-                if (parentGroupBox != null)
-                {
-                    // Pobranie ID użytkownika z etykiety w GroupBox
-                    Label idLabel = parentGroupBox.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Name.Contains("id"));
-
-                    if (idLabel != null && !string.IsNullOrEmpty(idLabel.Text))
-                    {
-                        string userId = idLabel.Text;
-                        DialogResult dialogResult = MessageBox.Show(
-                            "Czy na pewno chcesz usunąć tego użytkownika?",
-                            "Potwierdzenie",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning
-                        );
-
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            string url = $"http://localhost:3000/api/users/{userId}";
-
-                            try
-                            {
-                                HttpResponseMessage response = await client.DeleteAsync(url);
-                                if (response.IsSuccessStatusCode)
-                                {
-                                    MessageBox.Show("Użytkownik został usunięty!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    await LoadDataAsync(); // Załaduj dane ponownie po usunięciu użytkownika
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Błąd usuwania: {response.ReasonPhrase}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Błąd połączenia z serwerem: " + ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nie można pobrać ID użytkownika!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+          
         }
 
         private async void mod1_Click(object sender, EventArgs e)
         {
-            if (sender is Button modButton)
-            {
-                // Znalezienie GroupBox, w którym znajduje się przycisk
-                GroupBox parentGroupBox = modButton.Parent as GroupBox;
-
-                if (parentGroupBox != null)
-                {
-                    // Pobranie ID użytkownika z etykiety w GroupBox
-                    Label idLabel = parentGroupBox.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.Name.Contains("id"));
-                    ComboBox roleComboBox = parentGroupBox.Controls.OfType<ComboBox>().FirstOrDefault(cmb => cmb.Name.Contains("role"));
-
-                    if (idLabel != null && !string.IsNullOrEmpty(idLabel.Text) && roleComboBox != null)
-                    {
-                        string userId = idLabel.Text;
-                        string newRole = roleComboBox.SelectedItem.ToString();
-
-                        DialogResult dialogResult = MessageBox.Show(
-                            "Czy na pewno chcesz zmienić rolę tego użytkownika?",
-                            "Potwierdzenie",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning
-                        );
-
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            string url = "http://localhost:3000/api/changeRole";  // Endpoint zmiany roli
-                            var payload = new { _id = userId, role = newRole };
-
-                            try
-                            {
-                                // Serializowanie obiektu payload do JSON
-                                string jsonPayload = JsonConvert.SerializeObject(payload);
-
-                                // Tworzenie treści zapytania HTTP
-                                var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-
-                                // Wysłanie zapytania PUT
-                                HttpResponseMessage response = await client.PutAsync(url, content);
-
-                                if (response.IsSuccessStatusCode)
-                                {
-                                    MessageBox.Show("Rola została zmieniona!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    await LoadDataAsync();  // Odświeżenie danych po zmianie roli
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Błąd zmiany roli: {response.ReasonPhrase}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Błąd połączenia z serwerem: " + ex.Message, "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nie można pobrać ID użytkownika lub roli!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+          
         }
 
         private async void findUser_TextChanged(object sender, EventArgs e)
         {
-            TextBox searchBox = sender as TextBox;
-
-            if (searchBox != null && !string.IsNullOrEmpty(searchBox.Text))
-            {
-                string query = searchBox.Text;
-                string url = $"http://localhost:3000/api/search?query={query}";  // Endpoint z parametrem wyszukiwania
-
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    response.EnsureSuccessStatusCode();  // Rzuca wyjątek, jeśli kod HTTP nie jest sukcesem
-
-                    string result = await response.Content.ReadAsStringAsync();
-                    List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(result);
-
-                    if (users != null)
-                    {
-                        UpdateUI(users);  // Uaktualnienie UI na podstawie wyników wyszukiwania
-                    }
-                }
-                catch (HttpRequestException httpEx)
-                {
-                    MessageBox.Show("Błąd w zapytaniu HTTP: " + httpEx.Message);
-                }
-                catch (JsonException jsonEx)
-                {
-                    MessageBox.Show("Błąd parsowania JSON: " + jsonEx.Message);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Nieoczekiwany błąd: " + ex.Message);
-                }
-            }
-            else
-            {
-                await LoadDataAsync();  // Jeśli pole wyszukiwania jest puste, załaduj wszystkie dane
-            }
+           
         }
 
     }

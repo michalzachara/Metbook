@@ -102,3 +102,4 @@ C:\Users\micha\Desktop\meetbook\Metbook\FrontEnd\FrontEnd\bin\Debug\Newtonsoft.J
 C:\Users\micha\Desktop\meetbook\Metbook\FrontEnd\FrontEnd\bin\Debug\Newtonsoft.Json.xml
 C:\Users\micha\Desktop\meetbook\Metbook\FrontEnd\FrontEnd\obj\Debug\aa\FrontEnd.resources.dll
 C:\Users\micha\Desktop\meetbook\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.csproj.Up2Date
+C:\Users\PC\OneDrive\Pulpit\Metbook\FrontEnd\FrontEnd\obj\Debug\FrontEnd.Manage.resources

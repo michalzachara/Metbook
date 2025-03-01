@@ -39,29 +39,33 @@ namespace FrontEnd
             mainPageForm.ShowDialog();
             this.Close();
         }
-
+        /// <summary>
+        /// Save data to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void saveDataButton_Click(object sender, EventArgs e)
         {
             if (!validateForm())
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    var data = new
+                    var data = new // create new object with data to send
                     {
-                        _id = userData.Id,
+                        _id = userData._id,
                         username = changedLoginTextBox.Text,
                         surname = changedSurnameTextBox.Text,
                         name = changedNameTextBox.Text,
                         date = changedBirthDate.Value.ToString("yyyy-MM-dd")
                     };
 
-                    string jsonString = JsonConvert.SerializeObject(data);
+                    string jsonString = JsonConvert.SerializeObject(data); // convert object to json string
 
-                    HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                    HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json"); // create http content with json string
                     changeFormStatus(false,"Zapisywanie ...");
                     try {
-                        var response = client.PutAsync("http://localhost:3000/api/profile", content).Result;
-                        if (response.IsSuccessStatusCode)
+                        var response = client.PutAsync("http://localhost:3000/api/profile", content).Result; // send data to server
+                        if (response.IsSuccessStatusCode) // check if response is success
                         {
                             MessageBox.Show("Dane zostały zapisane");
 
@@ -72,18 +76,18 @@ namespace FrontEnd
 
                             changeFormStatus(true, "Zapisz");
                         }
-                        else
+                        else // if response is not success
                         {
-                            string result = await response.Content.ReadAsStringAsync();
+                            string result = await response.Content.ReadAsStringAsync(); // read response content
 
-                            try
+                            try // try to parse response to dictionary
                             {
                                 var errorResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
 
-                                if (errorResponse != null && errorResponse.ContainsKey("errorUsername"))
+                                if (errorResponse != null && errorResponse.ContainsKey("errorUsername")) // check if response contains errorUsername
                                 {
                                     errorUsername.Visible = true;
-                                    errorUsername.Text= errorResponse["errorUsername"];    
+                                    errorUsername.Text = errorResponse["errorUsername"];
                                 }else
                                     errorUsername.Visible = false;
                             }
@@ -103,6 +107,11 @@ namespace FrontEnd
                 }
             }
         }
+        /// <summary>
+        /// Change form status
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="message"></param>
         private void changeFormStatus(bool status, string message)
         {
             saveDataButton.Enabled = status;
@@ -172,7 +181,6 @@ namespace FrontEnd
             }
             return error;
         }
-
         private async void changePasswordButton_Click(object sender, EventArgs e)
         {
             int error1 = 0;
@@ -236,7 +244,7 @@ namespace FrontEnd
             {
                 var data = new
                 {
-                    _id = userData.Id,
+                    _id = userData._id,
                     password = OLdPass.Text,
                     newPassword = NewPass.Text,
                     confirmNewPassword = ConfirmNewPass.Text
