@@ -42,3 +42,22 @@ Content-Type: application/json
   "gender": "NewGender",
   "date" : "2010-02-04T00:00:00.000+00:00"
 }
+
+
+###
+
+DELETE http://localhost:3000/api/users/
+Content-Type: application/json
+
+{
+  "_id":"67c022b6d7518fab79b32392",
+}
+
+###
+
+Post http://localhost:3000/api/users/
+Content-Type: application/json
+
+{
+  "_id":"67c022b6d7518fab79b32392",
+}

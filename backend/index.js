@@ -222,7 +222,7 @@ app.post('/api/search/', async (req, res) => {
 			],
 		}
 
-		if (role === 'moderator') {
+		if (role === 'moderator'|| role === "admin") {
 			searchCriteria.role = { $in: ['user', 'moderator'] }
 		} else if (role === 'user') {
 			return res.status(403).json({ error: 'Brak uprawnień do wyszukiwania użytkowników' })
@@ -240,10 +240,10 @@ app.post('/api/search/', async (req, res) => {
 app.delete('/api/users/', async (req, res) => {
 	try {
 		const { _id, role } = req.body // Pobranie ID z URL
-
-    if(role !== 'admin') {
-      return res.status(403).json({ error: 'Brak uprawnień do usuwania użytkowników' })
-    }
+		console.log(role);
+		if(role !== 'admin' && role !== "moderator") {
+		return res.status(403).json({ error: 'Brak uprawnień do usuwania użytkowników' })
+		}
 
 		const user = await User.findByIdAndDelete(_id)
 

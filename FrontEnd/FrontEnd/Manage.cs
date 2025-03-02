@@ -73,7 +73,7 @@ namespace FrontEnd
         /// <param name="users">The list of the users returned form server</param>
         private void UpdateUI(List<UserData> users)
         {
-            // Znajdź lub utwórz panel przewijania
+            // Find or create a Panel to hold the user data
             Panel scrollablePanel = this.Controls.OfType<Panel>().FirstOrDefault();
             if (scrollablePanel == null)
             {
@@ -83,16 +83,16 @@ namespace FrontEnd
                 this.Controls.Add(scrollablePanel);
             }
 
-            // Resetowanie zawartości panelu
+            // reset panel
             scrollablePanel.Controls.Clear();
 
-            // Jeśli lista użytkowników jest pusta, zakończ działanie
+            // if the list is empty, return
             if (users.Count == 0)
             {
                 return;
             }
 
-            // Stałe do układu
+            // Constants for the layout
             int groupBoxWidth = 320;
             int groupBoxHeight = 120;
             int xOffset = 10;
@@ -103,12 +103,16 @@ namespace FrontEnd
 
             foreach (var user in users)
             {
-                if (user.Role == "admin" || user.Role == "moderator")
+                if (user.Role == "admin")
+                {
+                    continue;
+                }
+                if(user.Role == "moderator" && this.userData.Role == "moderator")
                 {
                     continue;
                 }
 
-                // Tworzenie GroupBox
+                // Create GroupBox
                 GroupBox groupBox = new GroupBox
                 {
                     Text = "Użytkownik",
@@ -117,7 +121,7 @@ namespace FrontEnd
                     Location = new Point(xOffset, yOffset)
                 };
 
-                // Tworzenie PictureBox
+                // Create PictureBox
                 PictureBox pictureBox = new PictureBox
                 {
                     Size = new Size(50, 50),
@@ -130,7 +134,7 @@ namespace FrontEnd
                     pictureBox.LoadAsync(user.ProfilePic);
                 }
 
-                // Tworzenie etykiet
+                // creating a labels
                 Label lblName = new Label 
                 { 
                     Text = user.Name + " " + user.Surname, 
@@ -166,9 +170,8 @@ namespace FrontEnd
                 };
 
                 
-                //admin moze usuwac moderator nie
+                //Moderator and admins cans delte a users
                 Button btnRemove = new Button()
-                //if (this.userData.Role == "admin")
                 {
                     Text = "Usuń",
                     BackColor = Color.Red,
@@ -180,7 +183,7 @@ namespace FrontEnd
 
                 btnRemove.Click += (sender, e) => delete(sender, e);
 
-
+                
                 Button btnMod = new Button()
                 {
                     Text = user.Role == "user" ? "Mianuj na moderatora" : "Usun moderatora",
@@ -198,7 +201,7 @@ namespace FrontEnd
                 groupBox.Controls.Add(lblRole);
                 groupBox.Controls.Add(lblId);
                 groupBox.Controls.Add(btnRemove);
-                groupBox.Controls.Add(btnMod);
+
 
                 if (this.userData.Role == "admin") groupBox.Controls.Add(btnMod);
 
@@ -260,12 +263,19 @@ namespace FrontEnd
 
             try
             {
-                HttpResponseMessage response = await client.DeleteAsync(url);
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Delete,
+                    RequestUri = new Uri(url),
+                    Content = content // Dodanie treści do DELETE
+                };
+
+                HttpResponseMessage response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Użytkownik został pomyślnie usunięty.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _ = LoadDataAsync(); 
+                    _ = LoadDataAsync();
                 }
                 else
                 {
@@ -300,8 +310,11 @@ namespace FrontEnd
 
             string userId = lblId.Text.Replace("ID: ", "").Trim();
 
+            string roleOfUser = "";
+            if (this.userData.Role == "moderator") roleOfUser = "user";
+            else roleOfUser = "moderator";
 
-            var requestData = new { _id = userId, role = this.userData.Role };
+            var requestData = new { _id = userId, role = roleOfUser };
             var json = JsonConvert.SerializeObject(requestData);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
