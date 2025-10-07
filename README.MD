@@ -8,19 +8,11 @@ Administrators have advanced controls to manage users and roles.
 
 ## 📦 Installation
 
-### 1️⃣ Clone the repository
+Clone the repository and navigate to the main directory:
 
 ```bash
 git clone https://github.com/YourRepo/metbook.git
 cd metbook
-
-## 📦 Installation
-
-Clone the repository and navigate to the main directory:
-
-```bash
-git clone https://github.com/m2ichu/wilksCalculatorApp.git
-cd wilksCalculatorApp
 ```
 
 Create a `.env` file in the backend folder:
